@@ -10,6 +10,10 @@ public class Event1 : MonoBehaviour
     [SerializeField]
     GameObject no;
 
+    // Click sfx
+    [SerializeField]
+    AudioClip click;
+
     GameObject gameManager;
 
     private void Start()
@@ -20,6 +24,9 @@ public class Event1 : MonoBehaviour
 
     public void OnClickYes()
     {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
         if (gameManager.GetComponent<GameManager>().moneyCount > 99)
         {
             Instantiate(yes, transform.position, transform.rotation);
@@ -30,6 +37,9 @@ public class Event1 : MonoBehaviour
 
     public void OnClickNo()
     {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
         Instantiate(no, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }

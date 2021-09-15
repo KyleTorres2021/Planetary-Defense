@@ -45,10 +45,10 @@ public class GameEventManager : MonoBehaviour
     IEnumerator EventTimer()
     {
         // Set random wait time
-        float countdown = Random.Range(30, 60);
+        float countdown = Random.Range(20, 60);
 
         // Wait duration of countdown
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(countdown);
 
         // Pick a random number to determine event
         int eventSelection = Random.Range(0, 3);

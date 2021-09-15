@@ -14,6 +14,12 @@ public class BasicEnemy : MonoBehaviour
 
     GameObject gameManager;
 
+    // Declare Sound Effects
+    [SerializeField]
+    AudioClip explode;
+    [SerializeField]
+    AudioClip loseLife;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +48,8 @@ public class BasicEnemy : MonoBehaviour
         // Checks to see if enemy is out of HP and destroys itself if so
         if(hp <= 0)
         {
-            // Add 5 spacebucks to player money and destroy this object
+            // play sfx, add 5 spacebucks to player money and destroy this object
+            SoundManager.Instance.Play(explode);
             gameManager.GetComponent<GameManager>().ChangeMoney(5);
             Destroy(this.gameObject);
         }
@@ -55,6 +62,9 @@ public class BasicEnemy : MonoBehaviour
 
         if (collision.gameObject.tag == "Planet")
         {
+            // Play sound effect
+            SoundManager.Instance.Play(loseLife);
+
             // Subtract one life from player total and destroy this object
             gameManager.GetComponent<GameManager>().ChangeLife(-1);
             Destroy(this.gameObject);

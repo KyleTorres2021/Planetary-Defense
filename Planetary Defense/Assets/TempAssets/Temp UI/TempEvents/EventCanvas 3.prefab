@@ -404,6 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yes: {fileID: 3824498218943736711, guid: 83f0ac4dcf7dc83418b06ace82e77d97, type: 3}
   no: {fileID: 6460294804089753083, guid: 4ef6816d69522ce4fbdc78fa90ce07ef, type: 3}
+  click: {fileID: 8300000, guid: 990cf7d700b8dfc4aa49db77dea3fbb0, type: 3}
 --- !u!1 &7643994288426458669
 GameObject:
   m_ObjectHideFlags: 0

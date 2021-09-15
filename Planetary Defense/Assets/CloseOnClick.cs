@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class CloseOnClick : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Click sfx
+    [SerializeField]
+    AudioClip click;
 
     public void DestroyCanvas()
     {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
         Destroy(this.gameObject);
     }
 }

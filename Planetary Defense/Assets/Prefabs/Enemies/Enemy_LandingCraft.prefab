@@ -99,6 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   hp: 5
+  explode: {fileID: 8300000, guid: 1f00d6eb76d20f442afae0e31ecc9218, type: 3}
+  loseLife: {fileID: 8300000, guid: d757761f586602d40835b1b1b0587d21, type: 3}
 --- !u!50 &7309312979334551198
 Rigidbody2D:
   serializedVersion: 4

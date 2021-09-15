@@ -10,6 +10,10 @@ public class Event3 : MonoBehaviour
     [SerializeField]
     GameObject no;
 
+    // Click sfx
+    [SerializeField]
+    AudioClip click;
+
     GameObject gameManager;
 
     private void Start()
@@ -20,6 +24,9 @@ public class Event3 : MonoBehaviour
 
     public void OnClickYes()
     {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
         Instantiate(yes, transform.position, transform.rotation);
         gameManager.GetComponent<GameManager>().ChangeMoney(-50);
         gameManager.GetComponent<GameManager>().ChangeLife(-5);
@@ -28,6 +35,9 @@ public class Event3 : MonoBehaviour
 
     public void OnClickNo()
     {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
         Instantiate(no, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
