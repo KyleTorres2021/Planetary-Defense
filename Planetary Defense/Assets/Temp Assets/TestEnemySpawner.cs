@@ -14,7 +14,7 @@ public class TestEnemySpawner : MonoBehaviour
     {
         spawnTime = Random.Range(5, 15);
 
-        Debug.Log("Spawn time" + spawnTime);
+        //Debug.Log("Spawn time" + spawnTime);
 
         InvokeRepeating("SpawnEnemy", 0.5f, spawnTime);
     }

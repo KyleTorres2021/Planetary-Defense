@@ -27,6 +27,7 @@ public class BasicEnemy : MonoBehaviour
         if (GameObject.FindWithTag("Planet") != null)
         {
             destination = GameObject.FindGameObjectWithTag("Planet").transform.position;
+            this.gameObject.transform.rotation = Quaternion.LookRotation(destination);
         }
 
     }
