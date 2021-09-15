@@ -2355,6 +2355,17 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 557692831560360992, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
+      propertyPath: m_Text
+      value: 'Protect your space colony from pirates!
+
+
+        Pan Camera with ASDW
+
+
+        Build
+        Towers by clicking a build spot'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
 --- !u!1001 &4705560566551623804
