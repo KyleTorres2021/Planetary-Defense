@@ -694,6 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yes: {fileID: 6717455003846105509, guid: 3f6fb6608ef006d478ffc295105c204c, type: 3}
   no: {fileID: 4572824192850061163, guid: a76e7157c1ff9d2499c512510832cb63, type: 3}
+  click: {fileID: 8300000, guid: 990cf7d700b8dfc4aa49db77dea3fbb0, type: 3}
 --- !u!1 &7262785535632956362
 GameObject:
   m_ObjectHideFlags: 0

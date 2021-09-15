@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Event3 : MonoBehaviour
+public class Event1 : MonoBehaviour
 {
     [SerializeField]
     GameObject yes;
@@ -27,10 +27,12 @@ public class Event3 : MonoBehaviour
         // Play Sound
         SoundManager.Instance.Play(click);
 
-        Instantiate(yes, transform.position, transform.rotation);
-        gameManager.GetComponent<GameManager>().ChangeMoney(-50);
-        gameManager.GetComponent<GameManager>().ChangeLife(-5);
-        Destroy(this.gameObject);
+        if (gameManager.GetComponent<GameManager>().moneyCount > 99)
+        {
+            Instantiate(yes, transform.position, transform.rotation);
+            gameManager.GetComponent<GameManager>().ChangeMoney(50);
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnClickNo()

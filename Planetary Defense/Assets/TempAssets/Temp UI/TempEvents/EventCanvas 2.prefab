@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 2807539330013534100}
   - component: {fileID: 2807539330013534103}
   - component: {fileID: 2807539330013534102}
-  - component: {fileID: 2807539330013534097}
+  - component: {fileID: 8642578249790597435}
   m_Layer: 5
   m_Name: EventCanvas 2
   m_TagString: Untagged
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2807539330013534097
+--- !u!114 &8642578249790597435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -347,9 +347,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2807539330013534096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d5394983c365742b84ddbd9c2e476d, type: 3}
+  m_Script: {fileID: 11500000, guid: f792c23a12281f84cbf23e36edeba28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  click: {fileID: 8300000, guid: 990cf7d700b8dfc4aa49db77dea3fbb0, type: 3}
 --- !u!1 &2807539330392232569
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,9 +550,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2807539330013534097}
-        m_TargetAssemblyTypeName: CloseOnClick, Assembly-CSharp
-        m_MethodName: DestroyCanvas
+      - m_Target: {fileID: 8642578249790597435}
+        m_TargetAssemblyTypeName: Event2, Assembly-CSharp
+        m_MethodName: EventHappens
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -10,11 +10,14 @@ public class Tower : MonoBehaviour
     public int projectileDamage;
     public int projectileSpeed;
 
+    //Declare Sound effects
+    [SerializeField]
+    AudioClip shoot;
+
     // Declare Tower Stats
     public float range = 5f;
     public float fireRate = 2f;
     public float fireCountdown = 0f;
-
 
     public string enemyTag = "Enemy";
     private Transform target;
@@ -88,6 +91,9 @@ public class Tower : MonoBehaviour
     {
         // Spawn projectile
         GameObject newProjectile = Instantiate(projectileType, transform.position, transform.rotation);
+
+        // Play Sound
+        SoundManager.Instance.Play(shoot);
 
         // Pass along projectile's target, damage, and speed
         newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15);
