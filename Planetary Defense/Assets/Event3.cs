@@ -28,7 +28,7 @@ public class Event3 : MonoBehaviour
 
     public void OnClickNo()
     {
-        Instantiate(yes, transform.position, transform.rotation);
+        Instantiate(no, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }

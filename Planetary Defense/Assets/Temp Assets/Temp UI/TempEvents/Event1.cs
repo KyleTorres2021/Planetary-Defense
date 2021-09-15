@@ -20,14 +20,17 @@ public class Event1 : MonoBehaviour
 
     public void OnClickYes()
     {
-        Instantiate(yes, transform.position, transform.rotation);
-        gameManager.GetComponent<GameManager>().ChangeMoney(50);
-        Destroy(this.gameObject);
+        if (gameManager.GetComponent<GameManager>().moneyCount > 99)
+        {
+            Instantiate(yes, transform.position, transform.rotation);
+            gameManager.GetComponent<GameManager>().ChangeMoney(50);
+            Destroy(this.gameObject);
+        }
     }
 
     public void OnClickNo()
     {
-        Instantiate(yes, transform.position, transform.rotation);
+        Instantiate(no, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
 }

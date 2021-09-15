@@ -10,7 +10,7 @@ public class BasicEnemy : MonoBehaviour
     // Declared for use throughout script
     Vector2 destination;    // Where the Pirate Ship is headed
     public float speed = 3;     // How fast the Pirate Ship should move
-    public float hp = 5;
+    public float hp = 6;
 
     GameObject gameManager;
 

@@ -17,7 +17,7 @@ public class GameEventManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine("EventTimer");
+        StartCoroutine("EventTimer");
 
         Debug.Log("Event Handler Lives!");
     }
@@ -45,15 +45,13 @@ public class GameEventManager : MonoBehaviour
     IEnumerator EventTimer()
     {
         // Set random wait time
-        //float countdown = Random.Range(15, 45);
-
-       // Debug.Log("Event Countdown" + countdown);
+        float countdown = Random.Range(30, 60);
 
         // Wait duration of countdown
         yield return new WaitForSeconds(10);
 
         // Pick a random number to determine event
-        int eventSelection = Random.Range(0, 2);
+        int eventSelection = Random.Range(0, 3);
 
         // Call Event method
         if(eventSelection == 0)

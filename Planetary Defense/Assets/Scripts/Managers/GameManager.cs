@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour
     public Vector2 worldSize;
 
     public int lifeCount = 50;
-    public int moneyCount = 100;
+    public int moneyCount = 50;
+
+    // GameOver canvas for, you guessed it
+    [SerializeField]
+    GameObject gameOver;
 
     // Update is called once per frame
     void Update()
@@ -22,7 +26,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         //Pause Action and slap the player with an error message or something.
-        Debug.Log("GAME OVER!");
+        Instantiate(gameOver);
     }
 
     /// <summary>
@@ -31,7 +35,15 @@ public class GameManager : MonoBehaviour
     /// <param name="change"></param>
     public void ChangeMoney(int change)
     {
-        moneyCount += change;
+        // Make sure money isn't negative
+        if (moneyCount + change < 0)
+        {
+           moneyCount = 0;
+        }
+        else // Add change to current money
+        {
+            moneyCount += change;
+        }
     }
 
     /// <summary>
