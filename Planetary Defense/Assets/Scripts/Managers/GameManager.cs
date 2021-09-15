@@ -9,13 +9,6 @@ public class GameManager : MonoBehaviour
     public int lifeCount = 50;
     public int moneyCount = 100;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("You have " + lifeCount + " Lives");
-        Debug.Log("You have " + moneyCount + " Space Bucks");
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +32,6 @@ public class GameManager : MonoBehaviour
     public void ChangeMoney(int change)
     {
         moneyCount += change;
-        Debug.Log("You have " + moneyCount + " Space Bucks");
     }
 
     /// <summary>
@@ -49,7 +41,6 @@ public class GameManager : MonoBehaviour
     public void ChangeLife(int change)
     {
         lifeCount += change;
-        Debug.Log("You have " + lifeCount + " life");
     }
 
 }
