@@ -10,8 +10,10 @@ public class HudManager : MonoBehaviour
     GameObject lifeCount;
     [SerializeField]
     GameObject moneyCount;
+    [SerializeField]
+    GameObject killCount;
 
-    Text lifeCountText, moneyCountText;
+    Text lifeCountText, moneyCountText, killCountText;
 
     GameObject gameManager;
 
@@ -24,6 +26,7 @@ public class HudManager : MonoBehaviour
         // Get text component for later use
         lifeCountText = lifeCount.GetComponent<Text>();
         moneyCountText = moneyCount.GetComponent<Text>();
+        killCountText = killCount.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,6 @@ public class HudManager : MonoBehaviour
         // Set text accordingly
         lifeCountText.text = "Life: " + gameManager.GetComponent<GameManager>().lifeCount;
         moneyCountText.text = "Money: $" + gameManager.GetComponent<GameManager>().moneyCount;
-
+        killCountText.text = "Kills: " + gameManager.GetComponent<GameManager>().killCount;
     }
 }

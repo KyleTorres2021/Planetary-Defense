@@ -6,12 +6,38 @@ public class GameManager : MonoBehaviour
 {
     public Vector2 worldSize;
 
-    public int lifeCount = 50;
+    public int lifeCount = 30;
     public int moneyCount = 50;
+    public int killCount = 0;
+    public int spawnCount = 0;
+
+    bool end = false;
 
     // GameOver canvas for, you guessed it
     [SerializeField]
     GameObject gameOver;
+    [SerializeField]
+    GameObject victoryCanvas;
+
+    //public static GameManager Instance = null;
+
+    //// Called Before Start
+    //private void Awake()
+    //{
+    //    // If there is not already an instance of GameManager, set it to this.
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //    }
+    //    //If an instance already exists, destroy whatever this object is to enforce the singleton.
+    //    else if (Instance != this)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //
+    //    //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     // Update is called once per frame
     void Update()
@@ -21,12 +47,34 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        // Endgame when
+        if (spawnCount >= 50)
+        {
+            EndGame();
+        }
     }
 
     void GameOver()
     {
         //Pause Action and slap the player with an error message or something.
-        Instantiate(gameOver);
+        if (!end)
+        {
+            end = true;
+            Instantiate(gameOver);
+        }
+    }
+
+    void EndGame()
+    {
+        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+        {
+            if (!end)
+            {
+                end = true;
+                Instantiate(victoryCanvas);
+            }
+        }
     }
 
     /// <summary>
@@ -53,6 +101,14 @@ public class GameManager : MonoBehaviour
     public void ChangeLife(int change)
     {
         lifeCount += change;
+    }
+
+    /// <summary>
+    /// Increases killCount by 1 when called
+    /// </summary>
+    public void IncreaseKills()
+    {
+        killCount++;
     }
 
 }

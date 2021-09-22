@@ -7,11 +7,16 @@ public class TestEnemySpawner : MonoBehaviour
     [SerializeField]
     GameObject enemy;
 
+    GameObject gameManager;
+
     float spawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set GameManager for use
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
+
         spawnTime = Random.Range(5, 15);
 
         //Debug.Log("Spawn time" + spawnTime);
@@ -21,10 +26,12 @@ public class TestEnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // Spawn projectile
-        GameObject newEnemy = Instantiate(enemy, transform.position, transform.rotation);
-
-        //Debug.Log("Spawn!");
+        // Spawn enemy
+        if (gameManager.GetComponent<GameManager>().spawnCount < 50)
+        {
+            gameManager.GetComponent<GameManager>().spawnCount += 1;
+            GameObject newEnemy = Instantiate(enemy, transform.position, transform.rotation);
+        }
     }
 
 

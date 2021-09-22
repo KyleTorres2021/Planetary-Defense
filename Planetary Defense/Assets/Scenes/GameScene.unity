@@ -177,9 +177,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldSize: {x: 0, y: 0}
-  lifeCount: 50
+  lifeCount: 10
   moneyCount: 50
+  killCount: 0
+  spawnCount: 0
   gameOver: {fileID: 8536171428047750443, guid: 571153f2d73914946b3d5955b10dc17f, type: 3}
+  victoryCanvas: {fileID: 731993848875826667, guid: 150fbf23e43803a4b9fd0a13921917eb, type: 3}
 --- !u!4 &224722541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4705560566197504708, guid: 4942ff430bbbbc340a4962cf50ba5a3a, type: 3}
@@ -274,7 +277,10 @@ MonoBehaviour:
   worldSize: {x: 0, y: 0}
   lifeCount: 50
   moneyCount: 50
-  gameOver: {fileID: 0}
+  killCount: 0
+  spawnCount: 0
+  gameOver: {fileID: 8536171428047750443, guid: 571153f2d73914946b3d5955b10dc17f, type: 3}
+  victoryCanvas: {fileID: 731993848875826667, guid: 150fbf23e43803a4b9fd0a13921917eb, type: 3}
 --- !u!4 &323788186
 Transform:
   m_ObjectHideFlags: 0
@@ -753,6 +759,7 @@ RectTransform:
   m_Children:
   - {fileID: 1625473632}
   - {fileID: 1394541722}
+  - {fileID: 2025679716}
   - {fileID: 1472500008}
   m_Father: {fileID: 946253714}
   m_RootOrder: 0
@@ -923,6 +930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeCount: {fileID: 1625473631}
   moneyCount: {fileID: 1394541721}
+  killCount: {fileID: 2025679715}
 --- !u!1001 &988915945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1384,11 +1392,11 @@ RectTransform:
   m_Children:
   - {fileID: 1117112889}
   m_Father: {fileID: 869859378}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -120}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 160, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1472500009
@@ -2074,6 +2082,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4942ff430bbbbc340a4962cf50ba5a3a, type: 3}
+--- !u!1 &2025679715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025679716}
+  - component: {fileID: 2025679718}
+  - component: {fileID: 2025679717}
+  m_Layer: 5
+  m_Name: HUD Killcount Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2025679716
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025679715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 869859378}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 30, y: -95}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &2025679717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025679715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 27
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Kills:'
+--- !u!222 &2025679718
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025679715}
+  m_CullTransparentMesh: 0
 --- !u!4 &2054745161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4705560566197504708, guid: 4942ff430bbbbc340a4962cf50ba5a3a, type: 3}
@@ -2271,6 +2358,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 557692829892684388, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 557692829892684391, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
