@@ -20,6 +20,10 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField]
     AudioClip loseLife;
 
+    // Death Particles
+    [SerializeField]
+    GameObject deathParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,10 +52,13 @@ public class BasicEnemy : MonoBehaviour
         // Checks to see if enemy is out of HP and destroys itself if so
         if(hp <= 0)
         {
-            // play sfx, add 5 spacebucks to player money, increase killcount, and destroy this object
-            SoundManager.Instance.Play(explode);
+            // Adjust player stats
             gameManager.GetComponent<GameManager>().IncreaseKills();
             gameManager.GetComponent<GameManager>().ChangeMoney(5);
+
+            // play sfx, instantiate death effect, and destroy this object
+            SoundManager.Instance.Play(explode);
+            Instantiate(deathParticles, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }
