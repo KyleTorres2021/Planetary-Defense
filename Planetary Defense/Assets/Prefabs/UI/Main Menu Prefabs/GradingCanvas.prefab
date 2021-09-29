@@ -564,4 +564,9 @@ MonoBehaviour:
 
     9/21 - Implemented Title Screen, Credits and Grading
     UI, Enemy Killcount, and Victory Condition. Renewable Resource: Money. Performance
-    Metric: Enemies Killed (Will be replaced with Defense R&D Later on)'
+    Metric: Enemies Killed (Will be replaced with Defense R&D Later on)
+
+
+    9/29
+    - Added Radar/Minimap in bottom left of screen. Added Missile Tower. Enabled
+    research and building of multiple tower types.'
