@@ -27,7 +27,7 @@ public class TestEnemySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         // Spawn enemy
-        if (gameManager.GetComponent<GameManager>().spawnCount < 50)
+        if (gameManager.GetComponent<GameManager>().spawnCount < 75)
         {
             gameManager.GetComponent<GameManager>().spawnCount += 1;
             GameObject newEnemy = Instantiate(enemy, transform.position, transform.rotation);

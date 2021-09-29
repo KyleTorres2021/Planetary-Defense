@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     public int killCount = 0;
     public int spawnCount = 0;
 
+    // True when player wins or loses
     bool end = false;
 
-    // GameOver canvas for, you guessed it
+    // Canvases to be spawned
     [SerializeField]
     GameObject gameOver;
     [SerializeField]
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Endgame when
-        if (spawnCount >= 50)
+        if (spawnCount >= 75)
         {
             EndGame();
         }
