@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: aa2b0389096cade48a51aa609b5058a3
+  - enabled: 1
+    path: Assets/TempAssets/ExampleWork/Chapter5StartScreen.unity
+    guid: e83a6376514bdd44eaa8bac18f7db79f
+  - enabled: 1
+    path: Assets/TempAssets/ExampleWork/UI Exercises.unity
+    guid: 1102a36bdc6efd34db29cfedab6d425d
   m_configObjects: {}
