@@ -14,12 +14,8 @@ public class Event1 : MonoBehaviour
     [SerializeField]
     AudioClip click;
 
-    GameObject gameManager;
-
     private void Start()
     {
-        // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     public void OnClickYes()
@@ -27,10 +23,10 @@ public class Event1 : MonoBehaviour
         // Play Sound
         SoundManager.Instance.Play(click);
 
-        if (gameManager.GetComponent<GameManager>().moneyCount > 99)
+        if (GameManager.Instance.moneyCount > 99)
         {
             Instantiate(yes, transform.position, transform.rotation);
-            gameManager.GetComponent<GameManager>().ChangeMoney(50);
+            GameManager.Instance.ChangeMoney(50);
             Destroy(this.gameObject);
         }
     }

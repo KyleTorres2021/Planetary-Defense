@@ -15,14 +15,9 @@ public class HudManager : MonoBehaviour
 
     Text lifeCountText, moneyCountText, killCountText;
 
-    GameObject gameManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
-
         // Get text component for later use
         lifeCountText = lifeCount.GetComponent<Text>();
         moneyCountText = moneyCount.GetComponent<Text>();
@@ -33,8 +28,8 @@ public class HudManager : MonoBehaviour
     void Update()
     {
         // Set text accordingly
-        lifeCountText.text = "Life: " + gameManager.GetComponent<GameManager>().lifeCount;
-        moneyCountText.text = "Money: $" + gameManager.GetComponent<GameManager>().moneyCount;
-        killCountText.text = "Kills: " + gameManager.GetComponent<GameManager>().killCount;
+        lifeCountText.text = "Life: " + GameManager.Instance.lifeCount;
+        moneyCountText.text = "Money: $" + GameManager.Instance.moneyCount;
+        killCountText.text = "Kills: " + GameManager.Instance.killCount;
     }
 }

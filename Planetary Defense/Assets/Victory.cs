@@ -11,19 +11,14 @@ public class Victory : MonoBehaviour
 
     Text message;
 
-    GameObject gameManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
-
         // Get text component for later use
         message = textObject.GetComponent<Text>();
 
         // Set text accordingly
-        message.text = "You killed " + gameManager.GetComponent<GameManager>().killCount + " out of " + gameManager.GetComponent<GameManager>().spawnCount + " enemies!";
+        message.text = "You killed " + GameManager.Instance.killCount + " out of " + GameManager.Instance.spawnCount + " enemies!";
     }
 
 }

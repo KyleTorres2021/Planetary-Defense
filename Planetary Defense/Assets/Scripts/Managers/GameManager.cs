@@ -20,25 +20,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject victoryCanvas;
 
-    //public static GameManager Instance = null;
+    // Helps enforce singleton
+    public static GameManager Instance = null;
 
-    //// Called Before Start
-    //private void Awake()
-    //{
-    //    // If there is not already an instance of GameManager, set it to this.
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //    //If an instance already exists, destroy whatever this object is to enforce the singleton.
-    //    else if (Instance != this)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //
-    //    //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-    //    DontDestroyOnLoad(gameObject);
-    //}
+    // Called Before Start
+    private void Awake()
+    {
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Update is called once per frame
     void Update()

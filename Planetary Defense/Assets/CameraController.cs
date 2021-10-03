@@ -8,15 +8,8 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 10f;
     public Vector2 panLimit = new Vector2(14, 14);
 
-    GameObject gameManager;
-
     void Start()
     {
-        // DEBUG
-        if (GameObject.FindWithTag("GameController") != null)
-        {
-            gameManager = GameObject.FindGameObjectWithTag("GameController");
-        }
     }
 
     // Update is called once per frame
@@ -40,12 +33,6 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey("a"))
         {
             pos.x -= panSpeed * Time.deltaTime;
-        }
-
-        // DEBUG
-        if (Input.GetKey("q"))
-        {
-            gameManager.GetComponent<GameManager>().ChangeMoney(-10);
         }
 
         // Clamp camera within world boundaries

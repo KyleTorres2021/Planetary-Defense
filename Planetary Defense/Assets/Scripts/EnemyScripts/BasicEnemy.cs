@@ -12,7 +12,7 @@ public class BasicEnemy : MonoBehaviour
     public float speed = 3;     // How fast the Pirate Ship should move
     public float hp = 6;
 
-    GameObject gameManager;
+    //GameObject gameManager;
 
     // Declare Sound Effects
     [SerializeField]
@@ -27,9 +27,6 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
-
         // Set speed -- May need to create a system for variable speed later
         //speed = 5;
 
@@ -53,8 +50,8 @@ public class BasicEnemy : MonoBehaviour
         if(hp <= 0)
         {
             // Adjust player stats
-            gameManager.GetComponent<GameManager>().IncreaseKills();
-            gameManager.GetComponent<GameManager>().ChangeMoney(5);
+            GameManager.Instance.IncreaseKills();
+            GameManager.Instance.ChangeMoney(5);
 
             // play sfx, instantiate death effect, and destroy this object
             SoundManager.Instance.Play(explode);
@@ -74,7 +71,7 @@ public class BasicEnemy : MonoBehaviour
             SoundManager.Instance.Play(loseLife);
 
             // Subtract one life from player total and destroy this object
-            gameManager.GetComponent<GameManager>().ChangeLife(-1);
+            GameManager.Instance.ChangeLife(-1);
             Destroy(this.gameObject);
         }
     }

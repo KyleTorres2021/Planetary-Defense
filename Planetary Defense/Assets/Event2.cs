@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Event2 : MonoBehaviour
 {
-    GameObject gameManager;
 
     // Click sfx
     [SerializeField]
@@ -14,8 +13,7 @@ public class Event2 : MonoBehaviour
     void Start()
     {
         // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
-        gameManager.GetComponent<GameManager>().ChangeMoney(25);
+        GameManager.Instance.ChangeMoney(25);
     }
 
     public void EventHappens()

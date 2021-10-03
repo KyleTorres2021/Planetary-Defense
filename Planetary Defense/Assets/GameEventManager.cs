@@ -18,8 +18,6 @@ public class GameEventManager : MonoBehaviour
     void Start()
     {
         StartCoroutine("EventTimer");
-
-        Debug.Log("Event Handler Lives!");
     }
 
     /// <summary>
