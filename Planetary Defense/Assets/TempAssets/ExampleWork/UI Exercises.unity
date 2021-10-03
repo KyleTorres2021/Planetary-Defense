@@ -1001,8 +1001,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 750472676}
   - {fileID: 277093185}
+  - {fileID: 750472676}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1044,7 +1044,7 @@ RectTransform:
   - {fileID: 1317353159}
   - {fileID: 78862247}
   m_Father: {fileID: 272631760}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2174,6 +2174,7 @@ GameObject:
   - component: {fileID: 685668988}
   - component: {fileID: 685668987}
   - component: {fileID: 685668990}
+  - component: {fileID: 685668991}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2260,6 +2261,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragItem: {fileID: 0}
   dragCanvas: {fileID: 247310168}
+--- !u!114 &685668991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685668986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92b114b23e07524c8a3578b1587c5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryPanel: {fileID: 277093186}
+  inventoryUp: 0
+  pausePanel: {fileID: 750472679}
+  pauseUp: 0
 --- !u!1 &707853139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2522,7 @@ RectTransform:
   m_Children:
   - {fileID: 1400445896}
   m_Father: {fileID: 272631760}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
