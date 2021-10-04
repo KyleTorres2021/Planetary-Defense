@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int spawnCount = 0;
 
     // True when player wins or loses
+    bool gameStarted = false;
     bool end = false;
 
     // Canvases to be spawned
@@ -19,6 +20,14 @@ public class GameManager : MonoBehaviour
     GameObject gameOver;
     [SerializeField]
     GameObject victoryCanvas;
+
+    // Helps select player control scheme
+    public enum ControlScheme
+    {
+        WASD,
+        Arrows,
+        MouseOnly
+    }
 
     // Helps enforce singleton
     public static GameManager Instance = null;

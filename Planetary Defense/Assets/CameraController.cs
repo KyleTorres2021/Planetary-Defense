@@ -8,8 +8,11 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 10f;
     public Vector2 panLimit = new Vector2(14, 14);
 
+    int controlScheme;
+
     void Start()
     {
+        controlScheme = 3;//GameManager.ControlScheme;
     }
 
     // Update is called once per frame
@@ -17,23 +20,67 @@ public class CameraController : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        // Read player input
-        if(Input.GetKey("w"))
+        // Read player input based on controlScheme (There must be a more streamlined way...)
+        switch (controlScheme)
         {
-            pos.y += panSpeed * Time.deltaTime;
+            case 1: //WASD Controls
+                if (Input.GetKey("w"))
+                {
+                    pos.y += panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey("s"))
+                {
+                    pos.y -= panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey("d"))
+                {
+                    pos.x += panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey("a"))
+                {
+                    pos.x -= panSpeed * Time.deltaTime;
+                }
+                break;
+            case 2: // Arrow Controls
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    pos.y += panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    pos.y -= panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    pos.x += panSpeed * Time.deltaTime;
+                }
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    pos.x -= panSpeed * Time.deltaTime;
+                }
+                break;
+            case 3: // Mouse Control
+                if (Input.mousePosition.y >= Screen.height - 5) // Up
+                {
+                    pos.y += panSpeed * Time.deltaTime;
+                }
+                if (Input.mousePosition.y <= 5) // Down
+                {
+                    pos.y -= panSpeed * Time.deltaTime;
+                }
+                if (Input.mousePosition.x >= Screen.width - 5) // Right
+                {
+                    pos.x += panSpeed * Time.deltaTime;
+                }
+                if (Input.mousePosition.x <= 5) // Left
+                {
+                    pos.x -= panSpeed * Time.deltaTime;
+                }
+                break;
+
+
         }
-        if (Input.GetKey("s"))
-        {
-            pos.y -= panSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey("d"))
-        {
-            pos.x += panSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey("a"))
-        {
-            pos.x -= panSpeed * Time.deltaTime;
-        }
+
 
         // Clamp camera within world boundaries
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
