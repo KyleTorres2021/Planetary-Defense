@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        controlScheme = 3;//GameManager.ControlScheme;
+        controlScheme = GameManager.Instance.currentControlScheme;
     }
 
     // Update is called once per frame

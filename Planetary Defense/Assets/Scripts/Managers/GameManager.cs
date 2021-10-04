@@ -21,13 +21,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject victoryCanvas;
 
-    // Helps select player control scheme
-    public enum ControlScheme
-    {
-        WASD,
-        Arrows,
-        MouseOnly
-    }
+    //// Helps select player control scheme
+    //public enum ControlScheme
+    //{
+    //    WASD,
+    //    Arrows,
+    //    MouseOnly
+    //}
+
+    public int currentControlScheme = 1;
 
     // Helps enforce singleton
     public static GameManager Instance = null;
@@ -120,6 +122,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseKills()
     {
         killCount++;
+    }
+
+    /// <summary>
+    /// Takes an int for control scheme
+    /// </summary>
+    /// <param name="controlScheme"></param>
+    public void SetCurrentControlScheme(int controlScheme)
+    {
+        currentControlScheme = controlScheme;
     }
 
 }

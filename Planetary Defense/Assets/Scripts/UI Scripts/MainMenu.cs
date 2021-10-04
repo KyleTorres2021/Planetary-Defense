@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -11,9 +12,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     GameObject credits;
 
+    [SerializeField]
+    Text optionsText;
+
     //Serialize field for button click sfx
     [SerializeField]
     AudioClip click;
+
+    int currentControl = 1;
 
     /// <summary>
     /// Loads GameScene 
@@ -49,5 +55,37 @@ public class MainMenu : MonoBehaviour
 
         // Spawn Canvas
         Instantiate(credits);
+    }
+
+    public void OptionsHandler()
+    {
+        // Play Sound
+        SoundManager.Instance.Play(click);
+
+        // Ensure currentControl remains bound within acceptable range
+        if (currentControl >= 3 || currentControl < 1)
+        {
+            currentControl = 1;
+        }
+        else
+        {
+            currentControl++;
+        }
+
+        //Label button text
+        if(currentControl == 1)
+        {
+            optionsText.text = "WASD Control";
+        }
+        else if (currentControl == 2)
+        {
+            optionsText.text = "Arrow Control";
+        }
+        else
+        {
+            optionsText.text = "Mouse Control";
+        }
+
+        GameManager.Instance.SetCurrentControlScheme(currentControl);
     }
 }
