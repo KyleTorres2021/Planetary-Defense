@@ -24,16 +24,11 @@ public class TowerPanelManager : MonoBehaviour
     // Gross and disgusting. Should probably be an enum
     public int normal = 0;
 
-    GameObject gameManager;
-
     void Start()
     {
         // Disable tower Buttons
         normalTowerButton.SetActive(false);
         missileTowerButton.SetActive(false);
-
-        // Set GameManager for use
-        gameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     //// Update is called once per frame
@@ -48,10 +43,10 @@ public class TowerPanelManager : MonoBehaviour
     public void AddButton()
     {
         // Ensures player has enough money to upgrade
-        if (gameManager.GetComponent<GameManager>().moneyCount > 49)
+        if (GameManager.Instance.moneyCount > 49)
         {
             //Subtract money for upgrade
-            gameManager.GetComponent<GameManager>().ChangeMoney(-50);
+            GameManager.Instance.ChangeMoney(-50);
 
             // Controls the upgrade tree: Activates buttons as the player researches
             switch (researchLevel)

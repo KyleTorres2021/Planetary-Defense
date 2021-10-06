@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int spawnCount = 0;
 
     // True when player wins or loses
+    bool gameStarted = false;
     bool end = false;
 
     // Canvases to be spawned
@@ -20,25 +21,36 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject victoryCanvas;
 
-    //public static GameManager Instance = null;
-
-    //// Called Before Start
-    //private void Awake()
+    //// Helps select player control scheme
+    //public enum ControlScheme
     //{
-    //    // If there is not already an instance of GameManager, set it to this.
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //    }
-    //    //If an instance already exists, destroy whatever this object is to enforce the singleton.
-    //    else if (Instance != this)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //
-    //    //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-    //    DontDestroyOnLoad(gameObject);
+    //    WASD,
+    //    Arrows,
+    //    MouseOnly
     //}
+
+    public int currentControlScheme = 1;
+
+    // Helps enforce singleton
+    public static GameManager Instance = null;
+
+    // Called Before Start
+    private void Awake()
+    {
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Update is called once per frame
     void Update()
@@ -110,6 +122,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseKills()
     {
         killCount++;
+    }
+
+    /// <summary>
+    /// Takes an int for control scheme
+    /// </summary>
+    /// <param name="controlScheme"></param>
+    public void SetCurrentControlScheme(int controlScheme)
+    {
+        currentControlScheme = controlScheme;
     }
 
 }
