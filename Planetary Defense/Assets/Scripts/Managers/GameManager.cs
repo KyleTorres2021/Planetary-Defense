@@ -6,6 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public Vector2 worldSize;
 
+    //Ultra-gross quest system. Cut ASAP
+    [SerializeField]
+    GameObject HUD;
+    bool QuestComplete1 = false;
+    bool QuestComplete2 = false;
+    bool QuestComplete3 = false;
+    bool QuestComplete4 = false;
+    bool QuestComplete5 = false;
+
     public int lifeCount = 30;
     public int moneyCount = 50;
     public int killCount = 0;
@@ -66,6 +75,9 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+        // Probs gonna cut this at the first opportunity
+        CheckQuests();
     }
 
     void GameOver()
@@ -131,6 +143,42 @@ public class GameManager : MonoBehaviour
     public void SetCurrentControlScheme(int controlScheme)
     {
         currentControlScheme = controlScheme;
+    }
+
+    /// <summary>
+    /// Ewwww! Cut quest feature ASAP!
+    /// </summary>
+    void CheckQuests()
+    {
+        if (moneyCount >= 300 && QuestComplete1 == false)
+        {
+            QuestComplete1 = true;
+            HUD.GetComponent<QuestsHandler>().CompleteQuest1();
+        }
+
+        if(GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete2 == false)
+        {
+            QuestComplete2 = true;
+            HUD.GetComponent<QuestsHandler>().CompleteQuest2();
+        }
+
+        if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete3 == false)
+        {
+            QuestComplete3 = true;
+            HUD.GetComponent<QuestsHandler>().CompleteQuest3();
+        }
+
+        if (GameObject.Find("Missile_Tower") != null && QuestComplete4 == false)
+        {
+            QuestComplete4 = true;
+            HUD.GetComponent<QuestsHandler>().CompleteQuest4();
+        }
+
+        if(spawnCount == 75 && QuestComplete5 == false)
+        {
+            QuestComplete5 = true;
+            HUD.GetComponent<QuestsHandler>().CompleteQuest5();
+        }
     }
 
 }

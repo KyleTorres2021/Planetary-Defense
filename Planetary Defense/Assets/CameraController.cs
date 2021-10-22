@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 10f;
     public Vector2 panLimit = new Vector2(14, 14);
 
-    int controlScheme;
+    int controlScheme = 1;
 
     void Start()
     {
@@ -77,7 +77,6 @@ public class CameraController : MonoBehaviour
                     pos.x -= panSpeed * Time.deltaTime;
                 }
                 break;
-
 
         }
 

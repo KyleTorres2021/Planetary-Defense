@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 
-public class FighterController : MonoBehaviour
+public class FighterControler : MonoBehaviour
 {
     [SerializeField] private Transform selectionAreaTransform;
 
-    private Vector2 startPosition;
+    private Vector3 startPosition;
     private List<Fighter> selectedFighterList;
 
     private void Awake()
@@ -22,8 +22,8 @@ public class FighterController : MonoBehaviour
         // While LeftMouse is held down, start drag/select
         if (Input.GetMouseButtonDown(0))
         {
-            startPosition = UtilsClass.GetMouseWorldPosition();
             selectionAreaTransform.gameObject.SetActive(true);
+            startPosition = UtilsClass.GetMouseWorldPosition();
         }
 
         if(Input.GetMouseButton(0))
@@ -46,7 +46,6 @@ public class FighterController : MonoBehaviour
         {
             // Hide selection
             selectionAreaTransform.gameObject.SetActive(false);
-
             Collider2D[] collider2DArray = Physics2D.OverlapAreaAll(startPosition, UtilsClass.GetMouseWorldPosition());
 
             // Deactivate select effect for previously selected fighters
@@ -61,7 +60,7 @@ public class FighterController : MonoBehaviour
             // Check all selected colliders
             foreach (Collider2D collider2D in collider2DArray)
             {
-                //Debug.Log("I work!");
+                Debug.Log("I work!");
                 // Attempt to get fighter
                 Fighter fighter = collider2D.GetComponent<Fighter>();
 
@@ -70,6 +69,17 @@ public class FighterController : MonoBehaviour
                 {
                     selectedFighterList.Add(fighter);
                 }
+            }
+        }
+
+        // Handle rightclick
+        if(Input.GetMouseButton(1))
+        {
+            Vector3 moveToPosition = UtilsClass.GetMouseWorldPosition();
+
+            foreach (Fighter fighter in selectedFighterList)
+            {
+                fighter.MoveTo(moveToPosition);
             }
         }
     }
