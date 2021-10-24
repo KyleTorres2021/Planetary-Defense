@@ -6,6 +6,8 @@ public class Fighter : MonoBehaviour
 {
 
     private GameObject selectedGameObject;
+
+    int speed = 4;
     
 
     private void Awake()
@@ -36,8 +38,11 @@ public class Fighter : MonoBehaviour
         selectedGameObject.SetActive(visible);
     }
 
-    //public void MoveTo(Vector3 targetPosition)
-    //{
-        
-    //}
+    public void MoveTo(Vector3 targetPosition)
+    {
+        Debug.Log("Moving!");
+
+        float step = speed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, step);
+    }
 }
