@@ -4,70 +4,57 @@ using UnityEngine;
 
 public class ShowHidePanels : MonoBehaviour
 {
-    // Inventory
-    public CanvasGroup inventoryPanel;
+    public Animator inventoryPanelAnim;
     public bool inventoryUp = false;
 
-    // Pause
-    public CanvasGroup pausePanel;
+    public Animator pausePanelAnim;
     public bool pauseUp = false;
 
-    // Start is called before the first frame update
+
+    // Use this for initialization
     void Start()
     {
-        // Disable Inventory Panel
-        inventoryPanel.alpha = 0;
-        inventoryPanel.interactable = false;
-        inventoryPanel.blocksRaycasts = false;
 
-        // Disable Pause Panel
-        pausePanel.alpha = 0;
-        pausePanel.interactable = false;
-        pausePanel.blocksRaycasts = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Control Inventory panel
+        //inventory panel
         if (Input.GetKeyDown(KeyCode.I) && pauseUp == false)
         {
-            // not visible
-            if(inventoryUp == false)
+            //not visible
+            if (inventoryUp == false)
             {
                 inventoryUp = true;
-                inventoryPanel.alpha = 1;
-                inventoryPanel.interactable = true;
-                inventoryPanel.blocksRaycasts = true;
+                inventoryPanelAnim.SetTrigger("FadeIn");
+
+                //already visible
             }
-            else // Already visible
+            else
             {
                 inventoryUp = false;
-                inventoryPanel.alpha = 0;
-                inventoryPanel.interactable = false;
-                inventoryPanel.blocksRaycasts = false;
+                inventoryPanelAnim.SetTrigger("FadeOut");
             }
         }
 
-        // Control Pause panel
+        //pause panel
         if (Input.GetButtonDown("Pause"))
         {
-            // not visible
+            //not visible
             if (pauseUp == false)
             {
                 pauseUp = true;
-                pausePanel.alpha = 1;
-                pausePanel.interactable = true;
-                pausePanel.blocksRaycasts = true;
                 Time.timeScale = 0;
+                pausePanelAnim.SetTrigger("FadeIn");
+
+                //already visible
             }
-            else // Already visible
+            else
             {
                 pauseUp = false;
-                pausePanel.alpha = 0;
-                pausePanel.interactable = false;
-                pausePanel.blocksRaycasts = false;
                 Time.timeScale = 1;
+                pausePanelAnim.SetTrigger("FadeOut");
             }
         }
     }
