@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d5394983c365742b84ddbd9c2e476d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  click: {fileID: 0}
+  click: {fileID: 8300000, guid: 990cf7d700b8dfc4aa49db77dea3fbb0, type: 3}
+  panelAnim: {fileID: 902478900232963184}
 --- !u!1 &557692830073157686
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +125,7 @@ GameObject:
   - component: {fileID: 557692830073157673}
   - component: {fileID: 557692830073157675}
   - component: {fileID: 557692830073157672}
+  - component: {fileID: 902478900232963184}
   m_Layer: 5
   m_Name: TutorialWindow
   m_TagString: Untagged
@@ -191,6 +193,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &902478900232963184
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557692830073157686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 691f9762fa6a74b49bcb4ff9ffd8b29a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &557692830712685044
 GameObject:
   m_ObjectHideFlags: 0

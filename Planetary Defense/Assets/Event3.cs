@@ -14,8 +14,11 @@ public class Event3 : MonoBehaviour
     [SerializeField]
     AudioClip click;
 
+    public Animator panelAnim;
+
     private void Start()
     {
+        panelAnim.SetTrigger("FadeIn");
     }
 
     public void OnClickYes()

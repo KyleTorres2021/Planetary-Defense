@@ -23,12 +23,22 @@ public class BasicEnemy : MonoBehaviour
     // Death Particles
     [SerializeField]
     GameObject deathParticles;
+    [SerializeField]
+    GameObject debrisParticles;
+
+    //Planet Damage Particles
+    [SerializeField]
+    GameObject smokeParticles;
+
+    public CameraController cameraShake;
 
     // Start is called before the first frame update
     void Start()
     {
         // Set speed -- May need to create a system for variable speed later
         //speed = 5;
+
+        cameraShake = Camera.main.GetComponent<CameraController>();
 
         //If planet exists, set destination to its position
         if (GameObject.FindWithTag("Planet") != null)
@@ -56,6 +66,7 @@ public class BasicEnemy : MonoBehaviour
             // play sfx, instantiate death effect, and destroy this object
             SoundManager.Instance.Play(explode);
             Instantiate(deathParticles, transform.position, transform.rotation);
+            Instantiate(debrisParticles, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }
@@ -70,8 +81,11 @@ public class BasicEnemy : MonoBehaviour
             // Play sound effect
             SoundManager.Instance.Play(loseLife);
 
+            StartCoroutine(cameraShake.Shake(.5f, .1f));
+
             // Subtract one life from player total and destroy this object
             GameManager.Instance.ChangeLife(-1);
+            Instantiate(smokeParticles, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
     }

@@ -22,8 +22,8 @@ TagManager:
   - Stations
   - Enemy
   - Minimap
-  - 
-  - 
+  - Cost UI
+  - HUD UI
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 481292675
+    locked: 0
+  - name: Cost UI
+    uniqueID: 1616075267
     locked: 0

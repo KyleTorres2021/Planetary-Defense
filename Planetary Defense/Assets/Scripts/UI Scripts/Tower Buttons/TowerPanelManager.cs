@@ -10,6 +10,10 @@ public class TowerPanelManager : MonoBehaviour
     [SerializeField]
     GameObject missileTowerButton;
 
+    // Serialize fields for spending effect
+    [SerializeField]
+    GameObject numbersEffect;
+
     // Upgrade Sound
     [SerializeField]
     AudioClip upgrade;
@@ -47,6 +51,9 @@ public class TowerPanelManager : MonoBehaviour
         {
             //Subtract money for upgrade
             GameManager.Instance.ChangeMoney(-50);
+
+            //Instantiate spendingEffect
+            GameObject spendingEffect = Instantiate(numbersEffect, transform.position, transform.rotation);
 
             // Controls the upgrade tree: Activates buttons as the player researches
             switch (researchLevel)

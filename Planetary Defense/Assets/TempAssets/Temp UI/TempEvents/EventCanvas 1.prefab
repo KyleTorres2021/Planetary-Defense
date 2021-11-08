@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7262785533616497936}
   - component: {fileID: 7262785533616497942}
   - component: {fileID: 7262785533616497943}
+  - component: {fileID: 1666822274344585692}
   m_Layer: 5
   m_Name: EventPanel
   m_TagString: Untagged
@@ -79,6 +80,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1666822274344585692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262785533616497937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 691f9762fa6a74b49bcb4ff9ffd8b29a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7262785533664001766
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +715,7 @@ MonoBehaviour:
   yes: {fileID: 6717455003846105509, guid: 3f6fb6608ef006d478ffc295105c204c, type: 3}
   no: {fileID: 4572824192850061163, guid: a76e7157c1ff9d2499c512510832cb63, type: 3}
   click: {fileID: 8300000, guid: 990cf7d700b8dfc4aa49db77dea3fbb0, type: 3}
+  panelAnim: {fileID: 1666822274344585692}
 --- !u!1 &7262785535632956362
 GameObject:
   m_ObjectHideFlags: 0

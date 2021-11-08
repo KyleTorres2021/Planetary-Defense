@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7309312979334551205, guid: 11bf6677f3d4aee45835efa40eb96bec, type: 3}
+  spawn: {fileID: 8300000, guid: 2d5c251700faa5b47b33a66ad4971872, type: 3}

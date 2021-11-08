@@ -9,9 +9,13 @@ public class Event2 : MonoBehaviour
     [SerializeField]
     AudioClip click;
 
+    public Animator panelAnim;
+
     // Start is called before the first frame update
     void Start()
     {
+        panelAnim.SetTrigger("FadeIn");
+
         // Set GameManager for use
         GameManager.Instance.ChangeMoney(25);
     }

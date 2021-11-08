@@ -9,10 +9,18 @@ public class CloseOnClick : MonoBehaviour
     [SerializeField]
     AudioClip click;
 
+    public Animator panelAnim;
+
+    private void Start()
+    {
+        panelAnim.SetTrigger("FadeIn");
+    }
+
     public void DestroyCanvas()
     {
         // Play Sound
         SoundManager.Instance.Play(click);
+        panelAnim.SetTrigger("FadeOut");
 
         Destroy(this.gameObject);
     }

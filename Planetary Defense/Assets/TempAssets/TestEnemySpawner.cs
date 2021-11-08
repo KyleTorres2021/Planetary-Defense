@@ -7,6 +7,9 @@ public class TestEnemySpawner : MonoBehaviour
     [SerializeField]
     GameObject enemy;
 
+    [SerializeField]
+    AudioClip spawn;
+
     float spawnTime;
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class TestEnemySpawner : MonoBehaviour
         {
             GameManager.Instance.spawnCount += 1;
             GameObject newEnemy = Instantiate(enemy, transform.position, transform.rotation);
+            SoundManager.Instance.Play(spawn);
         }
     }
 
