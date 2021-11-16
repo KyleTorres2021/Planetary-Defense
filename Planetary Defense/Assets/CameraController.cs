@@ -62,21 +62,40 @@ public class CameraController : MonoBehaviour
                 }
                 break;
             case 3: // Mouse Control
-                if (Input.mousePosition.y >= Screen.height - 5) // Up
+                if (Input.mousePosition.y >= Screen.height - 30) // Up
                 {
                     pos.y += panSpeed * Time.deltaTime;
                 }
-                if (Input.mousePosition.y <= 5) // Down
+                if(Input.mousePosition.y >= Screen.height - 90 && Input.mousePosition.y < Screen.width - 30)
+                {
+                    pos.y += panSpeed/2 * Time.deltaTime;
+                }
+
+                if (Input.mousePosition.y <= 30) // Down
                 {
                     pos.y -= panSpeed * Time.deltaTime;
                 }
-                if (Input.mousePosition.x >= Screen.width - 5) // Right
+                if(Input.mousePosition.y <= 90 && Input.mousePosition.y > 30)
+                {
+                    pos.y -= panSpeed/2 * Time.deltaTime;
+                }
+
+                if (Input.mousePosition.x >= Screen.width - 30) // Right
                 {
                     pos.x += panSpeed * Time.deltaTime;
                 }
-                if (Input.mousePosition.x <= 5) // Left
+                if(Input.mousePosition.x >= Screen.width - 90 && Input.mousePosition.x < Screen.width - 30)
+                {
+                    pos.x += panSpeed / 2 * Time.deltaTime;
+                }
+
+                if (Input.mousePosition.x <= 30) // Left
                 {
                     pos.x -= panSpeed * Time.deltaTime;
+                }
+                if (Input.mousePosition.x <= 90 && Input.mousePosition.x > 30) // Left
+                {
+                    pos.x -= panSpeed / 2 * Time.deltaTime;
                 }
                 break;
 
