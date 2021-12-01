@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     Transform myTarget;
     float mySpeed;
     int myDamage;
+    AudioClip mySound;
 
     //
     Vector3 normalizeDirection;
@@ -18,6 +19,25 @@ public class Projectile : MonoBehaviour
         myTarget = target;
         myDamage = damage;
         mySpeed = speed;
+
+        // Find direction at spawn bullet should fly in
+        normalizeDirection = (target.position - transform.position).normalized;
+    }
+
+    /// <summary>
+    /// Overload for projectiles with special hit sounds
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="damage"></param>
+    /// <param name="speed"></param>
+    /// <param name="hitSound"></param>
+    public void Initialize(Transform target, int damage, float speed, AudioClip hitSound)
+    {
+        // Set projectile stats based on what created it
+        myTarget = target;
+        myDamage = damage;
+        mySpeed = speed;
+        mySound = hitSound;
 
         // Find direction at spawn bullet should fly in
         normalizeDirection = (target.position - transform.position).normalized;
@@ -37,6 +57,12 @@ public class Projectile : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<BasicEnemy>().Damage(myDamage);
+
+            // Plays special hit sound if there is one.
+            if(mySound != null)
+            {
+                SoundManager.Instance.Play(mySound);
+            }
 
             Destroy(this.gameObject);
         }

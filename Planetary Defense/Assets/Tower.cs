@@ -13,6 +13,8 @@ public class Tower : MonoBehaviour
     //Declare Sound effects
     [SerializeField]
     AudioClip shoot;
+    [SerializeField]
+    AudioClip impact;
 
     // Declare Tower Stats
     public float range = 5f;
@@ -95,8 +97,16 @@ public class Tower : MonoBehaviour
         // Play Sound
         SoundManager.Instance.Play(shoot);
 
-        // Pass along projectile's target, damage, and speed
-        newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15);
+        // Pass along projectile's target, damage, speed, and optionally sound
+        if(impact != null)
+        {
+            newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15, impact);
+        }
+        else
+        {
+            newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15);
+        }
+
     }
 
     /// <summary>
