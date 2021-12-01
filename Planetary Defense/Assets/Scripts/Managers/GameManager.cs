@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviour
     //public enum ControlScheme
     //{
     //    WASD,
-    //    Arrows,
-    //    MouseOnly
+    //    MouseOnly,
+    //    Mobile
     //}
 
-    public int currentControlScheme = 1;
+    public int currentControlScheme;
 
     // Helps enforce singleton
     public static GameManager Instance = null;
@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     // Called Before Start
     private void Awake()
     {
+        currentControlScheme = 1;
+
         // If there is not already an instance of GameManager, set it to this.
         if (Instance == null)
         {
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Probs gonna cut this at the first opportunity
-        CheckQuests();
+        // CheckQuests();
     }
 
     void GameOver()

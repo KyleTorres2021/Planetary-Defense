@@ -81,7 +81,7 @@ public class BasicEnemy : MonoBehaviour
             // Play sound effect
             SoundManager.Instance.Play(loseLife);
 
-            StartCoroutine(cameraShake.Shake(.5f, .1f));
+            //StartCoroutine(cameraShake.Shake(.5f, .1f));
 
             // Subtract one life from player total and destroy this object
             GameManager.Instance.ChangeLife(-1);

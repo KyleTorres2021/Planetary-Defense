@@ -10,7 +10,10 @@ public class CameraController : MonoBehaviour
 
     Vector3 pos;
 
-    int controlScheme = 1;
+    // Virtual Joystick
+    public Joystick joystick;
+
+    int controlScheme;
 
     void Start()
     {
@@ -43,25 +46,7 @@ public class CameraController : MonoBehaviour
                     pos.x -= panSpeed * Time.deltaTime;
                 }
                 break;
-            case 2: // Arrow Controls
-                if (Input.GetKey(KeyCode.UpArrow))
-                {
-                    pos.y += panSpeed * Time.deltaTime;
-                }
-                if (Input.GetKey(KeyCode.DownArrow))
-                {
-                    pos.y -= panSpeed * Time.deltaTime;
-                }
-                if (Input.GetKey(KeyCode.RightArrow))
-                {
-                    pos.x += panSpeed * Time.deltaTime;
-                }
-                if (Input.GetKey(KeyCode.LeftArrow))
-                {
-                    pos.x -= panSpeed * Time.deltaTime;
-                }
-                break;
-            case 3: // Mouse Control
+            case 2: // Mouse Control
                 if (Input.mousePosition.y >= Screen.height - 30) // Up
                 {
                     pos.y += panSpeed * Time.deltaTime;
@@ -98,7 +83,10 @@ public class CameraController : MonoBehaviour
                     pos.x -= panSpeed / 2 * Time.deltaTime;
                 }
                 break;
-
+                case 3: // Mobile Controls
+                    pos.y += joystick.Vertical / panSpeed;
+                    pos.x += joystick.Horizontal / panSpeed;
+                break;
         }
 
         // Clamp camera within world boundaries
@@ -109,24 +97,41 @@ public class CameraController : MonoBehaviour
         transform.position = pos;
     }
 
-    public IEnumerator Shake(float duration, float magnitude)
+    public void MoveUp()
     {
-        Vector3 originalPos = pos;
-
-        float elapsed = 0.0f;
-
-        while (elapsed < duration)
-        {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
-
-            transform.position = new Vector3(x, y, transform.position.z);
-
-            elapsed += Time.deltaTime;
-
-            yield return null;
-        }
-
-        transform.position = originalPos;
+        pos.y += panSpeed * Time.deltaTime;
     }
+    public void MoveRight()
+    {
+        pos.x -= panSpeed * Time.deltaTime;
+    }
+    public void MoveDown()
+    {
+        pos.y -= panSpeed * Time.deltaTime;
+    }
+    public void MoveLeft()
+    {
+        pos.x += panSpeed * Time.deltaTime;
+    }
+
+    //public IEnumerator Shake(float duration, float magnitude)
+    //{
+    //    Vector3 originalPos = pos;
+
+    //    float elapsed = 0.0f;
+
+    //    while (elapsed < duration)
+    //    {
+    //        float x = Random.Range(-1f, 1f) * magnitude;
+    //        float y = Random.Range(-1f, 1f) * magnitude;
+
+    //        transform.position = new Vector3(x, y, transform.position.z);
+
+    //        elapsed += Time.deltaTime;
+
+    //        yield return null;
+    //    }
+
+    //    transform.position = originalPos;
+    //}
 }

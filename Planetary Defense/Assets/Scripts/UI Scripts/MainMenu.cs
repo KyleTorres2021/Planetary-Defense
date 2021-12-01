@@ -79,11 +79,11 @@ public class MainMenu : MonoBehaviour
         }
         else if (currentControl == 2)
         {
-            optionsText.text = "Arrow Control";
+            optionsText.text = "Mouse Control";
         }
         else
         {
-            optionsText.text = "Mouse Control";
+            optionsText.text = "Mobile Control";
         }
 
         GameManager.Instance.SetCurrentControlScheme(currentControl);

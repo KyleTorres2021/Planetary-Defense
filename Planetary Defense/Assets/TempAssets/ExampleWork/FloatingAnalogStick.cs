@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatingAnalogStick : MonoBehaviour {
+public class FloatingAnalogStick : MonoBehaviour
+{
 	//for the analog stick
 	public RectTransform theStick;
 	Vector2 mouseStartPosition;
@@ -16,24 +17,25 @@ public class FloatingAnalogStick : MonoBehaviour {
 	CanvasGroup theBaseVisibility;
 	public bool stickAdded=false;
 
+
 	void Awake()
     {
 		theBaseVisibility=theBase.GetComponent<CanvasGroup>();
 	}
 
-	public void AddTheStick()
+    public void AddTheStick()
     {
-		theBase.anchoredPosition=Input.mousePosition;
-		theStick.anchoredPosition=Vector2.zero;
-		mouseStartPosition=Input.mousePosition;
-		stickAdded=true;
+        //theBase.anchoredPosition = Input.mousePosition;
+        //theStick.anchoredPosition = Vector2.zero;
+        mouseStartPosition = Input.mousePosition;
+        stickAdded = true;
 
-		theBaseVisibility.alpha=1;
-		theBaseVisibility.interactable=true;
-		theBaseVisibility.blocksRaycasts=true;
-	}
+        theBaseVisibility.alpha = 1;
+        theBaseVisibility.interactable = true;
+        theBaseVisibility.blocksRaycasts = false;
+    }
 
-	void Update()
+    void Update()
     {
 		if(stickAdded==true)
         {
@@ -57,11 +59,12 @@ public class FloatingAnalogStick : MonoBehaviour {
 	}
 
 
-
-	public void Dragging(){
+	public void Dragging()
+    {
 		float xPos;
 		float yPos;
 		mouseCurrentPosition=Input.mousePosition;
+
 		if(mouseCurrentPosition.x<mouseStartPosition.x-dragPadding)
         {
 			MovingLeft();
@@ -94,23 +97,28 @@ public class FloatingAnalogStick : MonoBehaviour {
 		theStick.anchoredPosition=new Vector2(xPos,yPos);
 	}
 
-	public void StoppedDragging(){
+	public void StoppedDragging()
+    {
 		theStick.anchoredPosition=Vector2.zero;
 	}
 
-	public void MovingLeft(){
-		Debug.Log("move left");
+	public void MovingLeft()
+    {
+        Camera.main.GetComponent<CameraController>().MoveLeft();
 	}
 
-	public void MovingRight(){
-		Debug.Log("move right");
-	}
+	public void MovingRight()
+    {
+        Camera.main.GetComponent<CameraController>().MoveRight();
+    }
 
-	public void MovingUp(){
-		Debug.Log("move up");
-	}
+	public void MovingUp()
+    {
+        Camera.main.GetComponent<CameraController>().MoveUp();
+    }
 
-	public void MovingDown(){
-		Debug.Log("move down");
-	}
+	public void MovingDown()
+    {
+        Camera.main.GetComponent<CameraController>().MoveDown();
+    }
 }
