@@ -79,6 +79,6 @@ public class QuestsHandler : MonoBehaviour
     public void CompleteQuest5()
     {
         SoundManager.Instance.Play(chime);
-        questText5.text = "Quest 5: Survive your first rotation - Completed!";
+        questText5.text = "Quest 5: Survive your first day - Completed!";
     }
 }

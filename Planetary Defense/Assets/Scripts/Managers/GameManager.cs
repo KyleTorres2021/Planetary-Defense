@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
     bool QuestComplete4 = false;
     bool QuestComplete5 = false;
 
-    public int lifeCount = 30;
-    public int moneyCount = 50;
-    public int killCount = 0;
-    public int spawnCount = 0;
+    public int lifeCount;
+    public int moneyCount;
+    public int killCount;
+    public int spawnCount;
 
     // True when player wins or loses
     bool gameStarted = false;
@@ -63,6 +63,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+    public void InitializeGame()
+    {
+        lifeCount = 25;
+        moneyCount = 75;
+        killCount = 0;
+        spawnCount = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -79,7 +88,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Probs gonna cut this at the first opportunity
-        // CheckQuests();
+        CheckQuests();
     }
 
     void GameOver()
@@ -142,9 +151,16 @@ public class GameManager : MonoBehaviour
     /// Takes an int for control scheme
     /// </summary>
     /// <param name="controlScheme"></param>
-    public void SetCurrentControlScheme(int controlScheme)
+    public void SetCurrentControlScheme()
     {
-        currentControlScheme = controlScheme;
+        if(currentControlScheme >= 3)
+        {
+            currentControlScheme = 1;
+        }
+        else
+        {
+            currentControlScheme++;
+        }
     }
 
     /// <summary>
@@ -152,31 +168,32 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void CheckQuests()
     {
-        if (moneyCount >= 300 && QuestComplete1 == false)
+
+        if(GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete1 == false)
         {
             QuestComplete1 = true;
             HUD.GetComponent<QuestsHandler>().CompleteQuest1();
         }
 
-        if(GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete2 == false)
+        if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete2 == false)
         {
             QuestComplete2 = true;
             HUD.GetComponent<QuestsHandler>().CompleteQuest2();
         }
 
-        if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete3 == false)
+        if (GameObject.Find("Missile_Tower") != null && QuestComplete3 == false)
         {
             QuestComplete3 = true;
             HUD.GetComponent<QuestsHandler>().CompleteQuest3();
         }
 
-        if (GameObject.Find("Missile_Tower") != null && QuestComplete4 == false)
+        if (moneyCount >= 300 && QuestComplete4 == false)
         {
             QuestComplete4 = true;
             HUD.GetComponent<QuestsHandler>().CompleteQuest4();
         }
 
-        if(spawnCount == 75 && QuestComplete5 == false)
+        if (spawnCount == 75 && QuestComplete5 == false)
         {
             QuestComplete5 = true;
             HUD.GetComponent<QuestsHandler>().CompleteQuest5();
