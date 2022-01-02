@@ -30,14 +30,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject victoryCanvas;
 
-    //// Helps select player control scheme
-    //public enum ControlScheme
-    //{
-    //    WASD,
-    //    MouseOnly,
-    //    Mobile
-    //}
-
     public int currentControlScheme;
 
     // Helps enforce singleton
@@ -88,7 +80,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Probs gonna cut this at the first opportunity
-        CheckQuests();
+        //CheckQuests();
     }
 
     void GameOver()
