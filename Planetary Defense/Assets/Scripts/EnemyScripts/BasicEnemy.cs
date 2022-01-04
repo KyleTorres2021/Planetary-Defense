@@ -61,7 +61,7 @@ public class BasicEnemy : MonoBehaviour
         {
             // Adjust player stats
             GameManager.Instance.IncreaseKills();
-            GameManager.Instance.ChangeMoney(5);
+            //GameManager.Instance.ChangeMoney(5);
 
             // play sfx, instantiate death effect, and destroy this object
             SoundManager.Instance.Play(explode);

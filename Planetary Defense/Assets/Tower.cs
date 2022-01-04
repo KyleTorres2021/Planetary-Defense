@@ -20,6 +20,7 @@ public class Tower : MonoBehaviour
     public float range = 5f;
     public float fireRate = 2f;
     public float fireCountdown = 0f;
+    public float buildTime = 1f;
 
     public string enemyTag = "Enemy";
     private Transform target;

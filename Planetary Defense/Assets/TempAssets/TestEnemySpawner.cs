@@ -15,7 +15,7 @@ public class TestEnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnTime = Random.Range(5, 15);
+        spawnTime = Random.Range(10, 40);
 
         //Debug.Log("Spawn time" + spawnTime);
 
