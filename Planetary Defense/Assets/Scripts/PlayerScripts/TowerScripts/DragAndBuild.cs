@@ -21,27 +21,25 @@ public class DragAndBuild : MonoBehaviour
         cam = Camera.main;
     }
 
-    // Update is called once per frame
-    public void OnRightClick()
+    public void Update()
     {
-        Debug.Log("Click!");
+        Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 mousePos = new Vector2();
+        // Object position matches mouse position - Done this way or else Z-Axis is same as camera's, making object invisible to player
+        this.gameObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 
-        // Make buildable follow mouse cursor
-        Vector2 buildPosition  = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+        // Attempts to build tower when left mouse is up
+        if (Input.GetMouseButtonUp(0))
+        {
+            TryBuild();
+        }
+    }
 
-        //Instantiate(tower, buildPosition);
-
-        //// While left mouse button is held, set it's position to the mouse cursor
-        //if (Input.GetMouseButton(0))
-        //{
-        //    this.gameObject.transform.position = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
-        //}
-        //else
-        //{
-        //    //Build tower at position if position is unobstructed
-        //}
+    // Build tower if able
+    void TryBuild()
+    {
+        Instantiate(tower, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
 }
