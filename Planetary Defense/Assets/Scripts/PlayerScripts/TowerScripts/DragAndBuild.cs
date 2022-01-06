@@ -9,8 +9,7 @@ using UnityEngine.EventSystems;
 public class DragAndBuild : MonoBehaviour
 {
     // What tower prefab will be built
-    [SerializeField]
-    GameObject tower;
+    public GameObject tower;
 
     // Which camera world to point will use
     private Camera cam;
@@ -21,6 +20,11 @@ public class DragAndBuild : MonoBehaviour
         cam = Camera.main;
     }
 
+    public void InitializeBuild(GameObject towerToBuild)
+    {
+        tower = towerToBuild;
+    }
+
     public void Update()
     {
         Vector3 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -29,7 +33,7 @@ public class DragAndBuild : MonoBehaviour
         this.gameObject.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 0);
 
         // Attempts to build tower when left mouse is up
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
         {
             TryBuild();
         }
@@ -38,8 +42,20 @@ public class DragAndBuild : MonoBehaviour
     // Build tower if able
     void TryBuild()
     {
-        Instantiate(tower, transform.position, transform.rotation);
-        Destroy(this.gameObject);
+        if (GameManager.Instance.moneyCount >= tower.GetComponent<Tower>().towerCost)
+        {
+            // Subtract build cost from player money
+            GameManager.Instance.moneyCount -= tower.GetComponent<Tower>().towerCost;
+
+            // Build tower and destroy draggable
+            Instantiate(tower, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            // Destroy draggable if build fails
+            Destroy(this.gameObject);
+        }
     }
 
 }
