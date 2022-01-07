@@ -97,12 +97,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: {fileID: 5820308691066167815, guid: dfa0657e80382bb4fa66087bc23bb986, type: 3}
-  projectileDamage: 0
-  projectileSpeed: 0
+  projectileDamage: 3
+  projectileSpeed: 10
   shoot: {fileID: 8300000, guid: a2d387f673d17784a80523601ff60aa3, type: 3}
+  impact: {fileID: 0}
   range: 10
   fireRate: 1
   fireCountdown: 0
+  buildTime: 1
+  towerCost: 25
   enemyTag: Enemy
 --- !u!1 &4595411143801544496
 GameObject:

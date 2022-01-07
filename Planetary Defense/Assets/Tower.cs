@@ -102,11 +102,11 @@ public class Tower : MonoBehaviour
         // Pass along projectile's target, damage, speed, and optionally sound
         if(impact != null)
         {
-            newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15, impact);
+            newProjectile.GetComponent<Projectile>().Initialize(target, projectileDamage, projectileSpeed, impact);
         }
         else
         {
-            newProjectile.GetComponent<Projectile>().Initialize(target, 5, 15);
+            newProjectile.GetComponent<Projectile>().Initialize(target, projectileDamage, projectileSpeed);
         }
 
     }

@@ -15,6 +15,8 @@ public class TowerPanelManager : MonoBehaviour
     GameObject dragAndBuild;
     [SerializeField]
     GameObject basicTower;
+    [SerializeField]
+    GameObject missileTower;
 
     // Serialize fields for spending effect
     [SerializeField]
@@ -101,7 +103,10 @@ public class TowerPanelManager : MonoBehaviour
     /// </summary>
     public void ClickMissile()
     {
-        normal = 2;
+        //normal = 2;
         SoundManager.Instance.Play(ding);
+
+        Instantiate(dragAndBuild);
+        dragAndBuild.GetComponent<DragAndBuild>().tower = missileTower;
     }
 }
