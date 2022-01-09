@@ -64,7 +64,8 @@ public class Projectile : MonoBehaviour
                 SoundManager.Instance.Play(mySound);
             }
 
-            Destroy(this.gameObject);
         }
+
+        Destroy(this.gameObject);
     }
 }

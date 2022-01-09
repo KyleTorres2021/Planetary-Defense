@@ -48,7 +48,7 @@ public class DragAndBuild : MonoBehaviour
             GameManager.Instance.moneyCount -= tower.GetComponent<Tower>().towerCost;
 
             // Build tower and destroy draggable
-            Instantiate(tower, transform.position, transform.rotation);
+            GameObject newTower = Instantiate(tower, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
         else
@@ -56,6 +56,9 @@ public class DragAndBuild : MonoBehaviour
             // Destroy draggable if build fails
             Destroy(this.gameObject);
         }
+
+
+        tower = null;
     }
 
 }
