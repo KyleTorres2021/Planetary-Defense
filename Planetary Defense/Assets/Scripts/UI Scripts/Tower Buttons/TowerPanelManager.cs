@@ -94,8 +94,8 @@ public class TowerPanelManager : MonoBehaviour
         //normal = 1;
         SoundManager.Instance.Play(ding);
 
-        Instantiate(dragAndBuild);
-        dragAndBuild.GetComponent<DragAndBuild>().tower = basicTower;
+        GameObject myBuild = Instantiate(dragAndBuild);
+        myBuild.GetComponent<DragAndBuild>().tower = basicTower;
     }
 
     /// <summary>
@@ -106,7 +106,7 @@ public class TowerPanelManager : MonoBehaviour
         //normal = 2;
         SoundManager.Instance.Play(ding);
 
-        Instantiate(dragAndBuild);
-        dragAndBuild.GetComponent<DragAndBuild>().tower = missileTower;
+        GameObject myBuild = Instantiate(dragAndBuild);
+        myBuild.GetComponent<DragAndBuild>().tower = missileTower;
     }
 }

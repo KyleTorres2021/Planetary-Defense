@@ -8,6 +8,9 @@ using UnityEngine.EventSystems;
 /// </summary>
 public class DragAndBuild : MonoBehaviour
 {
+    //
+    bool canBuild;
+
     // What tower prefab will be built
     public GameObject tower;
 
@@ -20,9 +23,12 @@ public class DragAndBuild : MonoBehaviour
         cam = Camera.main;
     }
 
+    // Called by TowerPanelManager to pass in the tower to build
     public void InitializeBuild(GameObject towerToBuild)
     {
         tower = towerToBuild;
+
+
     }
 
     public void Update()
