@@ -17,17 +17,24 @@ public class DragAndBuild : MonoBehaviour
     // Which camera world to point will use
     private Camera cam;
 
+    SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        // Set main camera for screen to world
         cam = Camera.main;
+
     }
 
     // Called by TowerPanelManager to pass in the tower to build
     public void InitializeBuild(GameObject towerToBuild)
     {
+        // Set Tower
         tower = towerToBuild;
 
+        // Set Sprite and adjust alpha
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = towerToBuild.GetComponent<SpriteRenderer>().sprite;  
 
     }
 

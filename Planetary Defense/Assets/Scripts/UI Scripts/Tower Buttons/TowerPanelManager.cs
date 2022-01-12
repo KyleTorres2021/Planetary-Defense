@@ -95,7 +95,7 @@ public class TowerPanelManager : MonoBehaviour
         SoundManager.Instance.Play(ding);
 
         GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().tower = basicTower;
+        myBuild.GetComponent<DragAndBuild>().InitializeBuild(basicTower);
     }
 
     /// <summary>
