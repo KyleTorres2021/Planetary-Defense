@@ -187,6 +187,7 @@ MonoBehaviour:
   deathParticles: {fileID: 2705719170886124686, guid: 29d8eeeee987f8a44aa54fb08fcd02dc, type: 3}
   debrisParticles: {fileID: 2705719170886124686, guid: 2d46320e8c217bf4091b0557f324665d, type: 3}
   smokeParticles: {fileID: 2705719170886124686, guid: 78ec22c88fe93d244ae4b8273ea0b687, type: 3}
+  cameraShake: {fileID: 0}
 --- !u!50 &7309312979334551198
 Rigidbody2D:
   serializedVersion: 4
@@ -201,7 +202,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

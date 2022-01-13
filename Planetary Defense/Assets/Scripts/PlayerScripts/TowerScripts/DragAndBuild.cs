@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class DragAndBuild : MonoBehaviour
 {
     //
-    bool canBuild;
+    bool canBuild = true;
 
     // What tower prefab will be built
     public GameObject tower;
@@ -34,7 +34,8 @@ public class DragAndBuild : MonoBehaviour
         tower = towerToBuild;
 
         // Set Sprite and adjust alpha
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = towerToBuild.GetComponent<SpriteRenderer>().sprite;  
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = towerToBuild.GetComponent<SpriteRenderer>().sprite;
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
 
     }
 
@@ -55,7 +56,7 @@ public class DragAndBuild : MonoBehaviour
     // Build tower if able
     void TryBuild()
     {
-        if (GameManager.Instance.moneyCount >= tower.GetComponent<Tower>().towerCost)
+        if (GameManager.Instance.moneyCount >= tower.GetComponent<Tower>().towerCost && canBuild == true)
         {
             // Subtract build cost from player money
             GameManager.Instance.moneyCount -= tower.GetComponent<Tower>().towerCost;
@@ -72,6 +73,21 @@ public class DragAndBuild : MonoBehaviour
 
 
         tower = null;
+    }
+
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        canBuild = false;
+
+        Debug.Log("DragAndBuild " + canBuild);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        canBuild = true;
+
+        Debug.Log("DragAndBuild " + canBuild);
     }
 
 }

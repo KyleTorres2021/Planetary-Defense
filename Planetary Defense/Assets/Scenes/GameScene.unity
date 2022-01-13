@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 69446493}
   - component: {fileID: 69446492}
   - component: {fileID: 69446491}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: MinimapCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 15
+  m_Layer: 31
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 8119
+    m_Bits: 57271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1233,6 +1233,7 @@ GameObject:
   - component: {fileID: 1110821304}
   - component: {fileID: 1110821303}
   - component: {fileID: 1110821305}
+  - component: {fileID: 1110821306}
   m_Layer: 8
   m_Name: Asteroid
   m_TagString: Untagged
@@ -1321,6 +1322,27 @@ CircleCollider2D:
   m_Offset: {x: 0.09112251, y: 0.060748696}
   serializedVersion: 2
   m_Radius: 0.6280259
+--- !u!50 &1110821306
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110821302}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1282079944
 GameObject:
   m_ObjectHideFlags: 0
