@@ -13,6 +13,10 @@ public class Projectile : MonoBehaviour
     //
     Vector3 normalizeDirection;
 
+    // Impact Particles to juice projectiles a bit
+    [SerializeField]
+    GameObject impactParticle;
+
     public void Initialize(Transform target, int damage, float speed)
     {
         // Set projectile stats based on what created it
@@ -66,6 +70,8 @@ public class Projectile : MonoBehaviour
 
         }
 
+        // Spawn impact effect and destroy prefab
+        Instantiate(impactParticle, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);
     }
 }

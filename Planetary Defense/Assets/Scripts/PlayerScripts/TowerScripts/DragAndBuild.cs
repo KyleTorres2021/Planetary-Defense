@@ -14,11 +14,16 @@ public class DragAndBuild : MonoBehaviour
     // What tower prefab will be built
     public GameObject tower;
 
+    // Sound to play when tower is built
+    [SerializeField]
+    AudioClip buildSFX;
+
     // Which camera world to point will use
     private Camera cam;
 
     SpriteRenderer spriteRenderer;
 
+    // Colors to help inform player of buildability
     Color normalColor = new Color(1, 1, 1, .5f);
     Color redColor = new Color(250, 0, 0, .5f);
 
@@ -63,6 +68,9 @@ public class DragAndBuild : MonoBehaviour
         {
             // Subtract build cost from player money
             GameManager.Instance.moneyCount -= tower.GetComponent<Tower>().towerCost;
+
+            // Play build sound
+            SoundManager.Instance.Play(buildSFX);
 
             // Build tower and destroy draggable
             GameObject newTower = Instantiate(tower, transform.position, transform.rotation);
