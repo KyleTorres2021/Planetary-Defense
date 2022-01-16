@@ -19,6 +19,9 @@ public class DragAndBuild : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+    Color normalColor = new Color(1, 1, 1, .5f);
+    Color redColor = new Color(250, 0, 0, .5f);
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,7 @@ public class DragAndBuild : MonoBehaviour
 
         // Set Sprite and adjust alpha
         this.gameObject.GetComponent<SpriteRenderer>().sprite = towerToBuild.GetComponent<SpriteRenderer>().sprite;
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, .5f);
+        this.gameObject.GetComponent<SpriteRenderer>().color = normalColor;
 
     }
 
@@ -80,12 +83,16 @@ public class DragAndBuild : MonoBehaviour
     {
         canBuild = false;
 
+        this.gameObject.GetComponent<SpriteRenderer>().color = redColor;
+
         Debug.Log("DragAndBuild " + canBuild);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         canBuild = true;
+
+        this.gameObject.GetComponent<SpriteRenderer>().color = normalColor;
 
         Debug.Log("DragAndBuild " + canBuild);
     }
