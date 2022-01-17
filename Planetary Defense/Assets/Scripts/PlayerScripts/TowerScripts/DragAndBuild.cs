@@ -93,7 +93,6 @@ public class DragAndBuild : MonoBehaviour
 
         this.gameObject.GetComponent<SpriteRenderer>().color = redColor;
 
-        Debug.Log("DragAndBuild " + canBuild);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -102,7 +101,6 @@ public class DragAndBuild : MonoBehaviour
 
         this.gameObject.GetComponent<SpriteRenderer>().color = normalColor;
 
-        Debug.Log("DragAndBuild " + canBuild);
     }
 
 }

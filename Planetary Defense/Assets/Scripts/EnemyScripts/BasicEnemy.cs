@@ -26,9 +26,13 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField]
     GameObject debrisParticles;
 
-    //Planet Damage Particles
+    // Planet Damage Particles
     [SerializeField]
     GameObject smokeParticles;
+
+    // Colors for damage
+    Color normalColor = new Color(1, 1, 1);
+    Color damageColor = new Color(255, 0, 0);
 
     public CameraController cameraShake;
 
@@ -97,5 +101,20 @@ public class BasicEnemy : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
+
+        StartCoroutine(FlashRed());
+    }
+
+    /// <summary>
+    /// Enemy briefly blinks red when damaged
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FlashRed()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = damageColor;
+
+        yield return new WaitForSeconds(.05f);
+
+        this.gameObject.GetComponent<SpriteRenderer>().color = normalColor;
     }
 }
