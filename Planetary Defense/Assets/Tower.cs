@@ -22,7 +22,9 @@ public class Tower : MonoBehaviour
     public float fireCountdown = 0f;
     public float buildTime = 1f;
     public int towerCost = 25;
+    private bool boosted = false;
 
+    // Support for enemy targeting
     public string enemyTag = "Enemy";
     private Transform target;
 
