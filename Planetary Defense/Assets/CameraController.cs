@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public float panSpeed = 10f;
-    public Vector2 panLimit = new Vector2(14, 14);
+    Vector2 panLimit;
 
     Vector3 pos;
 
@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         controlScheme = GameManager.Instance.currentControlScheme;
+        panLimit = GameManager.Instance.worldSize;
     }
 
     // Update is called once per frame
@@ -92,6 +93,8 @@ public class CameraController : MonoBehaviour
         // Clamp camera within world boundaries
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
+
+        Debug.Log("Pan Limit " + panLimit + "Pos " + pos);
 
         // Set current position to new position
         transform.position = pos;

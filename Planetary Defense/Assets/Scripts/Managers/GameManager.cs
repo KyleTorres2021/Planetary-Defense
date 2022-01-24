@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Vector2 worldSize;
 
     //Ultra-gross quest system. Cut ASAP
-    [SerializeField]
-    GameObject HUD;
-    bool QuestComplete1 = false;
-    bool QuestComplete2 = false;
-    bool QuestComplete3 = false;
-    bool QuestComplete4 = false;
-    bool QuestComplete5 = false;
+    //[SerializeField]
+    //GameObject HUD;
+    //bool QuestComplete1 = false;
+    //bool QuestComplete2 = false;
+    //bool QuestComplete3 = false;
+    //bool QuestComplete4 = false;
+    //bool QuestComplete5 = false;
 
     public int lifeCount;
     public int moneyCount;
@@ -31,6 +30,13 @@ public class GameManager : MonoBehaviour
     GameObject victoryCanvas;
 
     public int currentControlScheme;
+
+    // Helps declare size of gameworld
+    //int worldMinX;
+    //int worldMaxX;
+    //int worldMinY;
+    //int worldMaxY;
+    public Vector2 worldSize = new Vector2(200, 200);
 
     // Helps enforce singleton
     public static GameManager Instance = null;
@@ -155,41 +161,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Ewwww! Cut quest feature ASAP!
-    /// </summary>
-    void CheckQuests()
-    {
+    ///// <summary>
+    ///// Ewwww! Cut quest feature ASAP!
+    ///// </summary>
+    //void CheckQuests()
+    //{
 
-        if(GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete1 == false)
-        {
-            QuestComplete1 = true;
-            HUD.GetComponent<QuestsHandler>().CompleteQuest1();
-        }
+    //    if (GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete1 == false)
+    //    {
+    //        QuestComplete1 = true;
+    //        HUD.GetComponent<QuestsHandler>().CompleteQuest1();
+    //    }
 
-        if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete2 == false)
-        {
-            QuestComplete2 = true;
-            HUD.GetComponent<QuestsHandler>().CompleteQuest2();
-        }
+    //    if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete2 == false)
+    //    {
+    //        QuestComplete2 = true;
+    //        HUD.GetComponent<QuestsHandler>().CompleteQuest2();
+    //    }
 
-        if (GameObject.Find("Missile_Tower") != null && QuestComplete3 == false)
-        {
-            QuestComplete3 = true;
-            HUD.GetComponent<QuestsHandler>().CompleteQuest3();
-        }
+    //    if (GameObject.Find("Missile_Tower") != null && QuestComplete3 == false)
+    //    {
+    //        QuestComplete3 = true;
+    //        HUD.GetComponent<QuestsHandler>().CompleteQuest3();
+    //    }
 
-        if (moneyCount >= 300 && QuestComplete4 == false)
-        {
-            QuestComplete4 = true;
-            HUD.GetComponent<QuestsHandler>().CompleteQuest4();
-        }
+    //    if (moneyCount >= 300 && QuestComplete4 == false)
+    //    {
+    //        QuestComplete4 = true;
+    //        HUD.GetComponent<QuestsHandler>().CompleteQuest4();
+    //    }
 
-        if (spawnCount == 75 && QuestComplete5 == false)
-        {
-            QuestComplete5 = true;
-            HUD.GetComponent<QuestsHandler>().CompleteQuest5();
-        }
-    }
+    //    if (spawnCount == 75 && QuestComplete5 == false)
+    //    {
+    //        QuestComplete5 = true;
+    //        HUD.GetComponent<QuestsHandler>().CompleteQuest5();
+    //    }
+    //}
 
 }

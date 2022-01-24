@@ -22,7 +22,7 @@ TagManager:
   - Stations
   - Enemy
   - Minimap
-  - Cost UI
+  - Effects
   - HUD UI
   - 
   - 
@@ -59,9 +59,9 @@ TagManager:
   - name: Projectiles
     uniqueID: 1020141633
     locked: 0
+  - name: Effects
+    uniqueID: 1616075267
+    locked: 0
   - name: UI
     uniqueID: 481292675
-    locked: 0
-  - name: Cost UI
-    uniqueID: 1616075267
     locked: 0
