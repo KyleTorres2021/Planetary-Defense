@@ -94,7 +94,7 @@ public class CameraController : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
 
-        Debug.Log("Pan Limit " + panLimit + "Pos " + pos);
+        //Debug.Log("Pan Limit " + panLimit + "Pos " + pos);
 
         // Set current position to new position
         transform.position = pos;

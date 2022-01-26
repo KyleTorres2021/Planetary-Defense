@@ -34,22 +34,30 @@ public class EnemySpawner : MonoBehaviour
     /// </summary>
     void ChooseSpawn()
     {
-        int chooseSpawn = Random.Range(0, 4);
-
-        switch(chooseSpawn)
+        if (GameManager.Instance.spawnCount < 75) //DEBUG
         {
-            case 0: // North Spawn
-                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y+10, worldSize.y+15), enemy);
-                break;
-            case 1: // East Spawn
-                SpawnEnemy(Random.Range(worldSize.x+10, worldSize.x+15), Random.Range(worldSize.y, -worldSize.y), enemy);
-                break;
-            case 2: // South Spawn
-                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y-15, -worldSize.y-10), enemy);
-                break;
-            case 3: // West Spawn
-                SpawnEnemy(Random.Range(-worldSize.x-15, -worldSize.x-10), Random.Range(worldSize.y, -worldSize.y), enemy);
-                break;
+
+            // Used to randomly select spawn box
+            int chooseSpawn = Random.Range(0, 4);
+
+            //
+            switch (chooseSpawn)
+            {
+                case 0: // North Spawn
+                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 10, worldSize.y + 15), enemy);
+                    break;
+                case 1: // East Spawn
+                    SpawnEnemy(Random.Range(worldSize.x + 10, worldSize.x + 15), Random.Range(worldSize.y, -worldSize.y), enemy);
+                    break;
+                case 2: // South Spawn
+                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y - 15, -worldSize.y - 10), enemy);
+                    break;
+                case 3: // West Spawn
+                    SpawnEnemy(Random.Range(-worldSize.x - 15, -worldSize.x - 10), Random.Range(worldSize.y, -worldSize.y), enemy);
+                    break;
+            }
+
+            GameManager.Instance.spawnCount++;
         }
 
     }
