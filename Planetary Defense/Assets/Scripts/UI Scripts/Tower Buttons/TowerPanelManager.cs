@@ -6,6 +6,8 @@ public class TowerPanelManager : MonoBehaviour
 {
     // Serialize fields for Tower Buttons
     [SerializeField]
+    GameObject resourceTowerButton;
+    [SerializeField]
     GameObject normalTowerButton;
     [SerializeField]
     GameObject missileTowerButton;
@@ -13,6 +15,8 @@ public class TowerPanelManager : MonoBehaviour
     // Serialize fields for build-related objects
     [SerializeField]
     GameObject dragAndBuild;
+    [SerializeField]
+    GameObject resourceTower;
     [SerializeField]
     GameObject basicTower;
     [SerializeField]
@@ -87,7 +91,19 @@ public class TowerPanelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Set gameManager activeTower to normal
+    /// Handles attempt to build resource tower
+    /// </summary>
+    public void ClickResource()
+    {
+        //normal = 1;
+        SoundManager.Instance.Play(ding);
+
+        GameObject myBuild = Instantiate(dragAndBuild);
+        myBuild.GetComponent<DragAndBuild>().InitializeBuild(resourceTower);
+    }
+
+    /// <summary>
+    /// Handles attempt to build normal tower
     /// </summary>
     public void ClickNormal()
     {
@@ -99,7 +115,7 @@ public class TowerPanelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Set gameManager activeTower to normal
+    /// Handles attempt to build missile tower
     /// </summary>
     public void ClickMissile()
     {

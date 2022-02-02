@@ -32,11 +32,10 @@ public class GameManager : MonoBehaviour
     public int currentControlScheme;
 
     // Helps declare size of gameworld
-    //int worldMinX;
-    //int worldMaxX;
-    //int worldMinY;
-    //int worldMaxY;
     public Vector2 worldSize = new Vector2(200, 200);
+
+    // List of ResourceTowers is used to determine player income
+    public List<ResourceTower> resources = new List<ResourceTower>();
 
     // Helps enforce singleton
     public static GameManager Instance = null;
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour
     public void InitializeGame()
     {
         lifeCount = 25;
-        moneyCount = 75;
+        moneyCount = 150;
         killCount = 0;
         spawnCount = 0;
     }

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3026129935176778665}
   - component: {fileID: 7218325464075498117}
   - component: {fileID: 4736220653659605732}
+  - component: {fileID: 5749153391003593054}
   m_Layer: 11
   m_Name: Tower_Missile
   m_TagString: Tower
@@ -228,3 +229,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &5749153391003593054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026129935176778666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0380c6567a2706844b2337f7a87fcb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 6313108368580693362, guid: 8e8ce58da42931946a9c91e4f89da3dc, type: 3}
+  projectileDamage: 8
+  projectileSpeed: 12
+  shoot: {fileID: 8300000, guid: 38b77ec48bdb7da418b42a883647d0a8, type: 3}
+  impact: {fileID: 8300000, guid: e49a7e7125e09e64c95a2585f33c82b8, type: 3}
+  range: 20
+  fireRate: 1.2
+  fireCountdown: 1
+  buildTime: 1
+  towerCost: 75
+  enemyTag: Enemy

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void AddRevenue()
     {
-        GameManager.Instance.moneyCount++;
+        GameManager.Instance.ChangeMoney(GameManager.Instance.resources.Count);
 
     }
 }
