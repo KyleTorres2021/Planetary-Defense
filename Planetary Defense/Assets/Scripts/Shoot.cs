@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Handles attacking functionality for towers
+/// Handles attacking functionality
 /// </summary>
-public class AttackTower : MonoBehaviour
+public class Shoot : MonoBehaviour
 {
-    // Type of projectile equipped by this tower
+    // Type of projectile equipped by this entity
     [SerializeField]
     GameObject projectileType;
     public int projectileDamage;
@@ -21,13 +21,12 @@ public class AttackTower : MonoBehaviour
 
     // Declare Tower Stats
     public float range = 0f;
-    public float fireRate = 2f;
+    public float fireRate = 0f;
     public float fireCountdown = 0f;
-    private bool boosted = false;
 
-    // Support for enemy targeting
-    public string enemyTag = "Enemy";
-    private Transform target;
+    // Support for targeting
+    public string targetTag = "Enemy";
+    private Transform targetPos;
 
     // Start is called before the first frame update
     void Start()
@@ -42,32 +41,32 @@ public class AttackTower : MonoBehaviour
     void UpdateTarget()
     {
         // Maintain a list of all enemies currently present in the game
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] targets = GameObject.FindGameObjectsWithTag(targetTag);
 
         // Temporary variables initially set to safe values
         float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        GameObject nearestTarget = null;
 
         //Check every enemy to determine closest one
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject target in targets)
         {
-            float distanceToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            float distanceToTarget = Vector2.Distance(transform.position, target.transform.position);
 
-            if (distanceToEnemy < shortestDistance)
+            if (distanceToTarget < shortestDistance)
             {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                shortestDistance = distanceToTarget;
+                nearestTarget = target;
             }
         }
 
         // If the nearest enemy is in range, it's set as the tower's target
-        if (nearestEnemy != null && shortestDistance <= range)
+        if (nearestTarget != null && shortestDistance <= range)
         {
-            target = nearestEnemy.transform;
+            targetPos = nearestTarget.transform;
         }
         else
         {
-            target = null;
+            targetPos = null;
         }
     }
 
@@ -75,7 +74,7 @@ public class AttackTower : MonoBehaviour
     void Update()
     {
         // If there is no target, end update before things get hairy
-        if (target == null)
+        if (targetPos == null)
         {
             return;
         }
@@ -83,7 +82,7 @@ public class AttackTower : MonoBehaviour
         // Controls rate of fire
         if (fireCountdown <= 0f)
         {
-            Shoot();
+            Fire();
 
             //Debug.Log("FireRate: " + fireRate);
 
@@ -95,7 +94,7 @@ public class AttackTower : MonoBehaviour
 
     }
 
-    void Shoot()
+    void Fire()
     {
         // Spawn projectile
         GameObject newProjectile = Instantiate(projectileType, transform.position, transform.rotation);
@@ -106,11 +105,11 @@ public class AttackTower : MonoBehaviour
         // Pass along projectile's target, damage, speed, and optionally sound
         if (impact != null)
         {
-            newProjectile.GetComponent<Projectile>().Initialize(target, projectileDamage, projectileSpeed, impact);
+            newProjectile.GetComponent<Projectile>().Initialize(targetPos, projectileDamage, projectileSpeed, impact);
         }
         else
         {
-            newProjectile.GetComponent<Projectile>().Initialize(target, projectileDamage, projectileSpeed);
+            newProjectile.GetComponent<Projectile>().Initialize(targetPos, projectileDamage, projectileSpeed);
         }
 
     }
