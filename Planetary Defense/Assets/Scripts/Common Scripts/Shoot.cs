@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
     public float fireCountdown = 0f;
 
     // Support for targeting
-    public string targetTag = "Enemy";
+    public string targetTag = null;
     private Transform targetPos;
 
     // Start is called before the first frame update

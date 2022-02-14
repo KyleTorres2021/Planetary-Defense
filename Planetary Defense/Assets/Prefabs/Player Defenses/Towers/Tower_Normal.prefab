@@ -99,17 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db6af945fe62f748a7cbe598aa45b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileType: {fileID: 5820308691066167815, guid: dfa0657e80382bb4fa66087bc23bb986, type: 3}
-  projectileDamage: 3
-  projectileSpeed: 10
-  shoot: {fileID: 8300000, guid: a2d387f673d17784a80523601ff60aa3, type: 3}
-  impact: {fileID: 0}
   range: 10
-  fireRate: 1
-  fireCountdown: 0
   buildTime: 1
   towerCost: 25
-  enemyTag: Enemy
+  hp: 10
 --- !u!58 &6361906565482549657
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,9 +160,7 @@ MonoBehaviour:
   range: 10
   fireRate: 1
   fireCountdown: 1
-  buildTime: 1
-  towerCost: 25
-  enemyTag: Enemy
+  targetTag: Enemy
 --- !u!1 &4595411143801544496
 GameObject:
   m_ObjectHideFlags: 0

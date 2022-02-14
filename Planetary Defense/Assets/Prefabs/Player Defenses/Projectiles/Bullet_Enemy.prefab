@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5820308691066167809}
   - component: {fileID: 5820308691066167808}
-  - component: {fileID: 5820308691066167810}
   - component: {fileID: 5820308691066167811}
   - component: {fileID: -6583850004420669758}
   - component: {fileID: 5992891470754658602}
-  m_Layer: 10
-  m_Name: Bullet
+  - component: {fileID: 4122852838421260751}
+  m_Layer: 16
+  m_Name: Bullet_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1020141633
-  m_SortingLayer: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0.5803922, b: 0, a: 1}
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5820308691066167810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5820308691066167815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa19f8e47c08524281f549cad79b539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactParticle: {fileID: 2705719170886124686, guid: 622ef4335fe31ea4ca6eb408e46f3836, type: 3}
 --- !u!58 &5820308691066167811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,3 +221,16 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4122852838421260751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5820308691066167815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71dc79e8d1122ab47b37c1f799e55c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactParticle: {fileID: 2705719170886124686, guid: 622ef4335fe31ea4ca6eb408e46f3836, type: 3}

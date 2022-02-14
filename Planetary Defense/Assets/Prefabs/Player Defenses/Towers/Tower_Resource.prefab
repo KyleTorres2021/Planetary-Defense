@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3301064686373205390}
   m_Layer: 11
   m_Name: Tower_Resource
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   range: 0
   buildTime: 1
   towerCost: 50
+  hp: 5
 --- !u!1 &7690443605977321097
 GameObject:
   m_ObjectHideFlags: 0
