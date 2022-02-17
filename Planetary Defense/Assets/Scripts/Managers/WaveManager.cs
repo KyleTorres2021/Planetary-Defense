@@ -4,22 +4,14 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    // Used to determine acceptable spawn positions
-    float minX;
-    float maxX;
-    float minY;
-    float maxY;
+    //
+    int waveCount; //Which number wave we're on
+    bool waveActive; //Whether we are currently spawning enemies
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        // Retrieve world size data for use in spawn boxes
-        minX = -GameManager.Instance.worldSize.x;
-        maxX = GameManager.Instance.worldSize.x;
-        minY = -GameManager.Instance.worldSize.y;
-        maxY = GameManager.Instance.worldSize.x;
-
-        //Debug.Log("Min X: " + minX + "Max X: " + maxX + "min Y: " + minY + "max y: " + maxY);
 
     }
 
@@ -27,6 +19,20 @@ public class WaveManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void BuildWave()
+    {
+
+    }
+
+    /// <summary>
+    /// Increases wave count and begins wave when UI button is clicked.
+    /// </summary>
+    void BeginNextWave()
+    {
+        waveCount++;
+        waveActive = true;
     }
 
 

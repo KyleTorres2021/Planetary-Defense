@@ -8,9 +8,17 @@ public class EnemySpawner : MonoBehaviour
     // Vital to creating spawn boxes
     Vector2 worldSize;
 
+    //Makes enemy spawner accessible to wave control
+    public EnemySpawner Instance;
+
     // DEBUG
     [SerializeField]
     GameObject enemy;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,15 +31,10 @@ public class EnemySpawner : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
-    /// Selects a random position in one of 4 spawn zones
+    /// Selects a random position in one of 4 spawn zones. Takes an enemy to spawn.
     /// </summary>
+    /// <param name="Enemy"></param>
     void ChooseSpawn()
     {
         if (GameManager.Instance.spawnCount < 75) //DEBUG
