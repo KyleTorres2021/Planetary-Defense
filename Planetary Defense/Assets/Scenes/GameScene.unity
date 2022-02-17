@@ -6100,6 +6100,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1025624871}
+  - component: {fileID: 1025624874}
+  - component: {fileID: 1025624873}
   - component: {fileID: 1025624872}
   m_Layer: 0
   m_Name: EnemySpawner
@@ -6134,8 +6136,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963f0f032b0ad5a49aa91269bed92356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Instance: {fileID: 0}
-  enemy: {fileID: 7309312979334551205, guid: 11bf6677f3d4aee45835efa40eb96bec, type: 3}
+--- !u!114 &1025624873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025624870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a45f0bd1af0ae74fbbcf3934c8cac25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal: {fileID: 7309312979334551205, guid: 11bf6677f3d4aee45835efa40eb96bec, type: 3}
+  assault: {fileID: 6845707472292675350, guid: 23747a21caa006f4da32934567b4e230, type: 3}
+--- !u!114 &1025624874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025624870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8602e1ef18235c438435c801d2d6e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065010061
 GameObject:
   m_ObjectHideFlags: 0

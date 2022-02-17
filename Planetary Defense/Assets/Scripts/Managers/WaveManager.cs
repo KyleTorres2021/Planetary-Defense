@@ -21,11 +21,6 @@ public class WaveManager : MonoBehaviour
         
     }
 
-    void BuildWave()
-    {
-
-    }
-
     /// <summary>
     /// Increases wave count and begins wave when UI button is clicked.
     /// </summary>
@@ -33,7 +28,22 @@ public class WaveManager : MonoBehaviour
     {
         waveCount++;
         waveActive = true;
+        BuildWave();
     }
+
+    // Generates and begins spawning enemy wave
+    void BuildWave()
+    {
+        // Get list of enemies from WaveBuilder
+        List<GameObject> waveList;
+        waveList = WaveBuilder.Instance.BuildWave(10); // 10 is debug. Replace later with wave's enemy count
+
+        // Send enemy list to spawner
+        EnemySpawner.Instance.SpawnWave(waveList);
+    }
+
+    //void display event(){
+    //}
 
 
 }

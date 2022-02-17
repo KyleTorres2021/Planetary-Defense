@@ -10,30 +10,29 @@ public class WaveBuilder : MonoBehaviour
     [SerializeField]
     GameObject assault;
 
-    // Start is called before the first frame update
-    void Start()
+    public static WaveBuilder Instance = null;
+
+    // 
+    void Awake()
     {
-        
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// Creates the list of enemies for spawner
     /// </summary>
     /// <returns></returns>
-    public List<GameObject> BuildWave()
+    public List<GameObject> BuildWave(int enemyCount)
     {
         //Declare list
         List<GameObject> wave = new List<GameObject>();
 
-        //for( i = 0; i < enemyCount; i++){
-        //wave.add(AddEnemy())
-        //}
+        //Adds a number of random enemies to wave list equal to enemyCount
+        for( int i = 0; i < enemyCount; i++)
+        {
+            wave.Add(SelectEnemy());
+        }
 
         //Returns the list once we've finished building it.
         return wave;
@@ -49,6 +48,9 @@ public class WaveBuilder : MonoBehaviour
         GameObject enemy = null;
 
         //TODO: Random number generator, ways to influence percentage
+
+        //debug
+        enemy = normal;
 
         return enemy;
     }

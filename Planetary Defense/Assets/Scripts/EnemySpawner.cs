@@ -9,11 +9,11 @@ public class EnemySpawner : MonoBehaviour
     Vector2 worldSize;
 
     //Makes enemy spawner accessible to wave control
-    public EnemySpawner Instance;
+    public static EnemySpawner Instance = null;
 
     // DEBUG
-    [SerializeField]
-    GameObject enemy;
+    //[SerializeField]
+    //GameObject enemy;
 
     private void Awake()
     {
@@ -32,10 +32,23 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// Accepts a list of enemies to spawn and passes each enemy in the list to ChooseSpawn()
+    /// </summary>
+    /// <param name="enemies"></param>
+    public void SpawnWave(List<GameObject> enemies)
+    {
+        //Adds a number of random enemies to wave list equal to enemyCount
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            ChooseSpawn(enemies[i]);
+        }
+    }
+
+    /// <summary>
     /// Selects a random position in one of 4 spawn zones. Takes an enemy to spawn.
     /// </summary>
-    /// <param name="Enemy"></param>
-    void ChooseSpawn()
+    /// <param name="enemy"></param>
+    void ChooseSpawn(GameObject enemy)
     {
         if (GameManager.Instance.spawnCount < 75) //DEBUG
         {
@@ -47,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
             switch (chooseSpawn)
             {
                 case 0: // North Spawn
-                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 10, worldSize.y + 15), enemy);
+                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 15, worldSize.y + 15), enemy);
                     break;
                 case 1: // East Spawn
                     SpawnEnemy(Random.Range(worldSize.x + 10, worldSize.x + 15), Random.Range(worldSize.y, -worldSize.y), enemy);
