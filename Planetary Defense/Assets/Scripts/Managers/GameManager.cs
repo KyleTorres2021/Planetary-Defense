@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         lifeCount = 25;
         moneyCount = 150;
         killCount = 0;
-        spawnCount = 0;
+        //spawnCount = 0;
     }
 
     // Update is called once per frame

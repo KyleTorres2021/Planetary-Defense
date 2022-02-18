@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    // Wave Start Button
+    [SerializeField]
+    GameObject startButton;
+
+   public static WaveManager Instance = null;
+
     //
-    int waveCount; //Which number wave we're on
-    bool waveActive; //Whether we are currently spawning enemies
+    int waveCount = 0; //Which number wave we're on
+    bool waveActive = false; //Whether we are currently spawning enemies
     
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -24,8 +30,9 @@ public class WaveManager : MonoBehaviour
     /// <summary>
     /// Increases wave count and begins wave when UI button is clicked.
     /// </summary>
-    void BeginNextWave()
+    public void BeginNextWave()
     {
+        startButton.SetActive(false);
         waveCount++;
         waveActive = true;
         BuildWave();
@@ -39,11 +46,15 @@ public class WaveManager : MonoBehaviour
         waveList = WaveBuilder.Instance.BuildWave(10); // 10 is debug. Replace later with wave's enemy count
 
         // Send enemy list to spawner
-        EnemySpawner.Instance.SpawnWave(waveList);
+        StartCoroutine(EnemySpawner.Instance.SpawnWave(waveList));
     }
 
-    //void display event(){
-    //}
+    
+    public void EndWave()
+    {
+        //StartEvent()
+        startButton.SetActive(true);
+    }
 
 
 }

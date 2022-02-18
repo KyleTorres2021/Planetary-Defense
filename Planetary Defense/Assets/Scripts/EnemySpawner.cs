@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
 
     // Vital to creating spawn boxes
     Vector2 worldSize;
+    float spawnDelay = 2;
 
     //Makes enemy spawner accessible to wave control
     public static EnemySpawner Instance = null;
@@ -17,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
+        //Ensures we can access spawner from other scripts
         Instance = this;
     }
 
@@ -25,23 +27,24 @@ public class EnemySpawner : MonoBehaviour
     {
         // 
         worldSize = GameManager.Instance.worldSize;
-
-        // DEBUG
-        InvokeRepeating("ChooseSpawn", 5, 3);
-
     }
 
     /// <summary>
     /// Accepts a list of enemies to spawn and passes each enemy in the list to ChooseSpawn()
     /// </summary>
     /// <param name="enemies"></param>
-    public void SpawnWave(List<GameObject> enemies)
+    public IEnumerator SpawnWave(List<GameObject> enemies)
     {
-        //Adds a number of random enemies to wave list equal to enemyCount
+        //Iterates through enemies and spawns
         for (int i = 0; i < enemies.Count; i++)
         {
             ChooseSpawn(enemies[i]);
+
+            // Delay between spawn
+            yield return new WaitForSeconds(spawnDelay);
         }
+
+        //WaveManager.Instance.EndWave();
     }
 
     /// <summary>
@@ -50,30 +53,24 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="enemy"></param>
     void ChooseSpawn(GameObject enemy)
     {
-        if (GameManager.Instance.spawnCount < 75) //DEBUG
+        // Used to randomly select spawn box
+        int chooseSpawn = Random.Range(0, 4);
+
+        //
+        switch (chooseSpawn)
         {
-
-            // Used to randomly select spawn box
-            int chooseSpawn = Random.Range(0, 4);
-
-            //
-            switch (chooseSpawn)
-            {
-                case 0: // North Spawn
-                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 15, worldSize.y + 15), enemy);
-                    break;
-                case 1: // East Spawn
-                    SpawnEnemy(Random.Range(worldSize.x + 10, worldSize.x + 15), Random.Range(worldSize.y, -worldSize.y), enemy);
-                    break;
-                case 2: // South Spawn
-                    SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y - 15, -worldSize.y - 10), enemy);
-                    break;
-                case 3: // West Spawn
-                    SpawnEnemy(Random.Range(-worldSize.x - 15, -worldSize.x - 10), Random.Range(worldSize.y, -worldSize.y), enemy);
-                    break;
-            }
-
-            GameManager.Instance.spawnCount++;
+            case 0: // North Spawn
+                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 15, worldSize.y + 20), enemy);
+                break;
+            case 1: // East Spawn
+                SpawnEnemy(Random.Range(worldSize.x + 15, worldSize.x + 20), Random.Range(worldSize.y, -worldSize.y), enemy);
+                break;
+            case 2: // South Spawn
+                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y - 20, -worldSize.y - 15), enemy);
+                break;
+            case 3: // West Spawn
+                SpawnEnemy(Random.Range(-worldSize.x - 15, -worldSize.x - 10), Random.Range(worldSize.y, -worldSize.y), enemy);
+                break;
         }
 
     }
@@ -86,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
     /// <param name="Enemy"></param>
     void SpawnEnemy(float xPos, float yPos, GameObject Enemy)
     {
-        Debug.Log("Spawned Enemy at " + xPos + ", " + yPos);
+        //Debug.Log("Spawned Enemy at " + xPos + ", " + yPos);
 
         Instantiate(Enemy, new Vector3(xPos, yPos), this.gameObject.transform.rotation);
     }
