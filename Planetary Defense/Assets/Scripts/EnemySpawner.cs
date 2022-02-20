@@ -18,8 +18,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        //Ensures we can access spawner from other scripts
-        Instance = this;
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -44,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnDelay);
         }
 
-        //WaveManager.Instance.EndWave();
+        WaveManager.Instance.EndWave();
     }
 
     /// <summary>

@@ -15,7 +15,16 @@ public class WaveBuilder : MonoBehaviour
     // 
     void Awake()
     {
-        Instance = this;
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

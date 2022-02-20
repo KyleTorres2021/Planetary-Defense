@@ -15,10 +15,19 @@ public class WaveManager : MonoBehaviour
     bool waveActive = false; //Whether we are currently spawning enemies
     
 
-    // Start is called before the first frame update
-    void Start()
+    // Awake is called before Start
+    void Awake()
     {
-        Instance = this;
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -32,6 +41,7 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     public void BeginNextWave()
     {
+        Debug.Log(startButton);
         startButton.SetActive(false);
         waveCount++;
         waveActive = true;
@@ -52,9 +62,30 @@ public class WaveManager : MonoBehaviour
     
     public void EndWave()
     {
-        //StartEvent()
-        startButton.SetActive(true);
+        //DEbug
+        Debug.Log("Spawning finished!");
+
+        //Invoke Check for enemies to ensure things don't happen when we don't want them to.
+        InvokeRepeating("CheckForEnemies", 0, 2);
     }
 
+    /// <summary>
+    /// Helper method for Endwave() Returns true if no enemies are in play
+    /// </summary>
+    /// <returns></returns>
+    void CheckForEnemies()
+    {
+        Debug.Log("Checking for enemies...");
+        if (GameObject.FindWithTag("Enemy") == null)
+        {
+            Debug.Log(startButton);
+
+            //StartEvent()
+            startButton.SetActive(true);
+
+            CancelInvoke("CheckForEnemies");
+        }
+
+    }
 
 }
