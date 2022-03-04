@@ -10,7 +10,7 @@ public class BasicEnemy : MonoBehaviour
     // Declared for use throughout script
     Vector2 destination;    // Where the Pirate Ship is headed
     public float speed = 3;     // How fast the Pirate Ship should move
-    public float hp = 6;
+    public float hp = 2;
 
     //GameObject gameManager;
 
@@ -41,6 +41,9 @@ public class BasicEnemy : MonoBehaviour
     {
         // Set speed -- May need to create a system for variable speed later
         //speed = 5;
+
+        //Slightly sloppy way to scale enemy hp
+        hp = hp * WaveManager.Instance.waveCount;
 
         cameraShake = Camera.main.GetComponent<CameraController>();
 

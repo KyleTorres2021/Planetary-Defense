@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EndGame()
+    public void EndGame()
     {
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {

@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class Tower : MonoBehaviour
 {
+    // Smoke plume for low health
+    [SerializeField]
+    GameObject damageEffects;
 
     // Declare Tower Stats
     public float range = 0f;
@@ -18,6 +21,12 @@ public class Tower : MonoBehaviour
     // Colors for damage
     Color normalColor = new Color(1, 1, 1);
     Color damageColor = new Color(255, 0, 0);
+
+    private void Start()
+    {
+        //Deactivate smoke plume until we need it
+        damageEffects.SetActive(false);
+    }
 
     private void Update()
     {
@@ -36,6 +45,12 @@ public class Tower : MonoBehaviour
         hp -= damage;
 
         StartCoroutine(FlashRed());
+
+        // When HP is critical, activate smoke
+        if(hp <= 4)
+        {
+            damageEffects.SetActive(true);
+        }
     }
 
     /// <summary>

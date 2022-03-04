@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     float playerIncome;
 
@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
 
     void AddRevenue()
     {
-        GameManager.Instance.ChangeMoney(GameManager.Instance.resources.Count);
-
+        if (WaveManager.Instance.waveActive == true)
+        {
+            GameManager.Instance.ChangeMoney(GameManager.Instance.resources.Count);
+        }
     }
 }

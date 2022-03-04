@@ -26,6 +26,9 @@ public class Projectile : MonoBehaviour
 
         // Find direction at spawn bullet should fly in
         normalizeDirection = (target.position - transform.position).normalized;
+
+        // Limit bullet lifetime
+        StartCoroutine("Lifetime");
     }
 
     /// <summary>
@@ -54,5 +57,12 @@ public class Projectile : MonoBehaviour
         transform.position += normalizeDirection * mySpeed * Time.deltaTime;
     }
 
+    // Destry bullet after x time to clean up
+    IEnumerator Lifetime()
+    {
+        yield return new WaitForSeconds(8);
+
+        Destroy(this.gameObject);
+    }
 
 }

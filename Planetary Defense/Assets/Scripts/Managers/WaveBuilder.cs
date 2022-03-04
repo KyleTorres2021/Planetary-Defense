@@ -53,13 +53,31 @@ public class WaveBuilder : MonoBehaviour
     /// <returns></returns>
     public GameObject SelectEnemy()
     {
-        //Declare 
+        //Declare enemy for assignment 
         GameObject enemy = null;
 
-        //TODO: Random number generator, ways to influence percentage
+        //Random number Generator
+        int randomEnemy;
 
-        //debug
-        enemy = normal;
+
+        //TODO: Random number generator, ways to influence percentage
+        //if(WaveManager.Instance.waveCount > 2) //Starting on Wave 3
+        //{
+            randomEnemy = Random.Range(1,3);
+
+            if(randomEnemy == 1)
+            {
+                enemy = normal;
+            }
+            else
+            {
+                enemy = assault;
+            }
+        //}
+        //else
+        //{
+        //    enemy = normal;
+        //}
 
         return enemy;
     }

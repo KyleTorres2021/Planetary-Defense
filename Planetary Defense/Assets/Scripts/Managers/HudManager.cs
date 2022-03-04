@@ -11,9 +11,9 @@ public class HudManager : MonoBehaviour
     [SerializeField]
     GameObject moneyCount;
     [SerializeField]
-    GameObject killCount;
+    GameObject waveNumber;
 
-    Text lifeCountText, moneyCountText, killCountText;
+    Text lifeCountText, moneyCountText, waveNumberText;
     int life, money, kills;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class HudManager : MonoBehaviour
         // Get text component for later use
         lifeCountText = lifeCount.GetComponent<Text>();
         moneyCountText = moneyCount.GetComponent<Text>();
-        killCountText = killCount.GetComponent<Text>();
+        waveNumberText = waveNumber.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class HudManager : MonoBehaviour
         // Set text accordingly
         UpdateLife();
         moneyCountText.text = "Money: $" + GameManager.Instance.moneyCount;
-        killCountText.text = "Kills: " + GameManager.Instance.killCount;
+        waveNumberText.text = "Wave: " + WaveManager.Instance.waveCount;
     }
 
     void UpdateLife()
@@ -43,24 +43,6 @@ public class HudManager : MonoBehaviour
         }
     }
 
-    void UpdateMoney()
-    {
-        if (money != GameManager.Instance.moneyCount)
-        {
-            PulseText(moneyCount);
-            money = GameManager.Instance.moneyCount;
-            moneyCountText.text = "Life: " + money;
-        }
-    }
-
-    void UpdateKills()
-    {
-        if (kills != GameManager.Instance.killCount)
-        {
-            kills = GameManager.Instance.killCount;
-            killCountText.text = "Life: " + kills;
-        }
-    }
 
     void PulseText(GameObject textObject)
     {

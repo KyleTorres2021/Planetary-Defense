@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6870598024193869603, guid: 44d5b5497aa1bd7469da4c1f38f63ff9, type: 3}
+      propertyPath: m_Text
+      value: Missile Tower - $100
+      objectReference: {fileID: 0}
     - target: {fileID: 6870598024725565981, guid: 44d5b5497aa1bd7469da4c1f38f63ff9, type: 3}
       propertyPath: m_Name
       value: ButtonHolder_Missile

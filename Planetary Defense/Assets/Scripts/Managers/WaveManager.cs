@@ -11,8 +11,9 @@ public class WaveManager : MonoBehaviour
    public static WaveManager Instance = null;
 
     //
-    int waveCount = 0; //Which number wave we're on
-    bool waveActive = false; //Whether we are currently spawning enemies
+    public int waveCount = 0; //Which number wave we're on
+    int enemyCount = 0;
+    public bool waveActive = false; //Whether we are currently spawning enemies
     
 
     // Awake is called before Start
@@ -41,11 +42,19 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     public void BeginNextWave()
     {
-        Debug.Log(startButton);
-        startButton.SetActive(false);
-        waveCount++;
-        waveActive = true;
-        BuildWave();
+        if (waveCount < 3)
+        {
+            Debug.Log(startButton);
+            startButton.SetActive(false);
+            waveCount++;
+            enemyCount += 10;
+            waveActive = true;
+            BuildWave();
+        }
+        else
+        {
+            GameManager.Instance.EndGame();
+        }
     }
 
     // Generates and begins spawning enemy wave
@@ -53,7 +62,7 @@ public class WaveManager : MonoBehaviour
     {
         // Get list of enemies from WaveBuilder
         List<GameObject> waveList;
-        waveList = WaveBuilder.Instance.BuildWave(10); // 10 is debug. Replace later with wave's enemy count
+        waveList = WaveBuilder.Instance.BuildWave(enemyCount); // 10 is debug. Replace later with wave's enemy count
 
         // Send enemy list to spawner
         StartCoroutine(EnemySpawner.Instance.SpawnWave(waveList));
@@ -78,9 +87,9 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Checking for enemies...");
         if (GameObject.FindWithTag("Enemy") == null)
         {
-            Debug.Log(startButton);
+            waveActive = false;
 
-            //StartEvent()
+            GameEventManager.Instance.PickEvent();
             startButton.SetActive(true);
 
             CancelInvoke("CheckForEnemies");

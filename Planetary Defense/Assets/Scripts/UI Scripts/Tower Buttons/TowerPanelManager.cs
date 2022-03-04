@@ -43,8 +43,8 @@ public class TowerPanelManager : MonoBehaviour
     void Start()
     {
         // Disable tower Buttons
-        normalTowerButton.SetActive(false);
-        missileTowerButton.SetActive(false);
+        //normalTowerButton.SetActive(false);
+        //missileTowerButton.SetActive(false);
     }
 
     //// Update is called once per frame
@@ -123,6 +123,6 @@ public class TowerPanelManager : MonoBehaviour
         SoundManager.Instance.Play(ding);
 
         GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().tower = missileTower;
+        myBuild.GetComponent<DragAndBuild>().InitializeBuild(missileTower);
     }
 }

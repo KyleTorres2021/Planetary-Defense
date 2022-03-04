@@ -6,6 +6,8 @@ public class GameEventManager : MonoBehaviour
 {
     //TODO: Pause event timer if one is currently taking place
 
+    public static GameEventManager Instance = null;
+
     // Prefabs of event UI
     [SerializeField]
     GameObject event1;
@@ -14,42 +16,31 @@ public class GameEventManager : MonoBehaviour
     [SerializeField]
     GameObject event3;
 
+    int eventSelection;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("EventTimer");
+        // If there is not already an instance of GameManager, set it to this.
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        //If an instance already exists, destroy whatever this object is to enforce the singleton.
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    /// <summary>
-    /// A series of gross methods to spawn individual event canvases
-    /// </summary>
-    void First()
+    private void Update()
     {
-        Instantiate(event1);
-        StartCoroutine("EventTimer");
-    }
-    void Second()
-    {
-        Instantiate(event2);
-        StartCoroutine("EventTimer");
-    }
-    void Third()
-    {
-        Instantiate(event3);
-        StartCoroutine("EventTimer");
+        eventSelection = Random.Range(0, 3);
     }
 
     // Waits between 15 and 45 seconds and triggers a random event
-    IEnumerator EventTimer()
+    public void PickEvent()
     {
-        // Set random wait time
-        float countdown = Random.Range(20, 60);
-
-        // Wait duration of countdown
-        yield return new WaitForSeconds(countdown);
-
-        // Pick a random number to determine event
-        int eventSelection = Random.Range(0, 3);
 
         // Call Event method
         if(eventSelection == 0)
@@ -64,5 +55,20 @@ public class GameEventManager : MonoBehaviour
         {
             Third();
         }
+    }
+
+    void First()
+    {
+        GameObject.Instantiate(event1);
+    }
+
+    void Second()
+    {
+        GameObject.Instantiate(event2);
+    }
+
+    void Third()
+    {
+        GameObject.Instantiate(event3);
     }
 }
