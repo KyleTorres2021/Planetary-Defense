@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6361906565482549657}
   - component: {fileID: 2089010101914637894}
   - component: {fileID: 2181547917803419505}
+  - component: {fileID: 3424317399621642109}
   m_Layer: 11
   m_Name: Tower_Normal
   m_TagString: Tower
@@ -100,11 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db6af945fe62f748a7cbe598aa45b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageEffects: {fileID: 5470156307052996702}
   range: 10
   buildTime: 1
   towerCost: 25
-  hp: 10
 --- !u!58 &6361906565482549657
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -163,6 +162,23 @@ MonoBehaviour:
   fireRate: 1
   fireCountdown: 1
   targetTag: Enemy
+--- !u!114 &3424317399621642109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507774577641742122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399bbe1f44fa6794eb718767a998fd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 5
+  deathSound: {fileID: 8300000, guid: 93268c5b3f4ce28449cc2be909d5e31f, type: 3}
+  damagedEffects: {fileID: 5470156307052996702}
+  deathParticles1: {fileID: 2705719170886124686, guid: 5a1dc239c78caa3458c055c8bc0a3258, type: 3}
+  deathParticles2: {fileID: 2705719170886124686, guid: 4b81270962d919a4b92d64e0011f54ff, type: 3}
 --- !u!1 &4595411143801544496
 GameObject:
   m_ObjectHideFlags: 0

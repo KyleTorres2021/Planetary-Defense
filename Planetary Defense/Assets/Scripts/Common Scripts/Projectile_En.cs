@@ -11,7 +11,7 @@ public class Projectile_En : Projectile
         // If colliding with an enemy, damage it and destroy this projectile
         if (collision.gameObject.tag == "Tower") // I'll leave this here since projectiles can collide with asteroids
         {
-            collision.gameObject.GetComponent<Tower>().Damage(myDamage);
+            collision.gameObject.GetComponent<HealthBar>().Damage(myDamage);
 
             // Plays special hit sound if there is one.
             if (mySound != null)
