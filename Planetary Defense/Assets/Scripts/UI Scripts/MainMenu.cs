@@ -69,7 +69,7 @@ public class MainMenu : MonoBehaviour
         // Play Sound
         SoundManager.Instance.Play(click);
 
-        GameManager.Instance.SetCurrentControlScheme();
+        //GameManager.Instance.SetCurrentControlScheme();
 
         UpdateOptionsText();
     }

@@ -148,17 +148,17 @@ public class GameManager : MonoBehaviour
     /// Takes an int for control scheme
     /// </summary>
     /// <param name="controlScheme"></param>
-    public void SetCurrentControlScheme()
-    {
-        if(currentControlScheme >= 3)
-        {
-            currentControlScheme = 1;
-        }
-        else
-        {
-            currentControlScheme++;
-        }
-    }
+    //public void SetCurrentControlScheme()
+    //{
+    //    if(currentControlScheme >= 3)
+    //    {
+    //        currentControlScheme = 1;
+    //    }
+    //    else
+    //    {
+    //        currentControlScheme++;
+    //    }
+    //}
 
     ///// <summary>
     ///// Ewwww! Cut quest feature ASAP!
