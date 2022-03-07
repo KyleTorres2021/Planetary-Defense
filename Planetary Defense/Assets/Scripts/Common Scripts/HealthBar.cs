@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     //Public health to be set in editor
+    public float maxHP;
     public float hp = 0;
 
     // Serialize fields for sound effects
@@ -34,6 +35,9 @@ public class HealthBar : MonoBehaviour
     {
         //Deactivate damaged until needed
         damagedEffects.SetActive(false);
+
+        //Set health to max health
+        hp = maxHP;
     }
 
     /// <summary>
@@ -57,7 +61,7 @@ public class HealthBar : MonoBehaviour
  
         StartCoroutine(FlashRed());
 
-        if(hp <= 4)
+        if(hp <= maxHP/3)
         {
             damagedEffects.SetActive(true);
         }

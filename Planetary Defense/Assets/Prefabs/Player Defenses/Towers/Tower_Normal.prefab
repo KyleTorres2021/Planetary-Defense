@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db6af945fe62f748a7cbe598aa45b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Basic Tower
   range: 10
   buildTime: 1
   towerCost: 25
@@ -174,7 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399bbe1f44fa6794eb718767a998fd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  maxHP: 10
+  hp: 0
   deathSound: {fileID: 8300000, guid: 93268c5b3f4ce28449cc2be909d5e31f, type: 3}
   damagedEffects: {fileID: 5470156307052996702}
   deathParticles1: {fileID: 2705719170886124686, guid: 5a1dc239c78caa3458c055c8bc0a3258, type: 3}
