@@ -3383,7 +3383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557692830073157686, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557692830712685044, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_Layer
@@ -3401,11 +3401,11 @@ PrefabInstance:
         Pan Camera with ASDW
 
 
-        RESEARCH
-        Towers to Unlock new ones!
+        Interact
+        with Left Click
 
 
-        Build Towers by clicking a build spot'
+        Fast-Forward with Space'
       objectReference: {fileID: 0}
     - target: {fileID: 557692831560361006, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_Layer

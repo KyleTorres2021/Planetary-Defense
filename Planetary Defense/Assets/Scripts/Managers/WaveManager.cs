@@ -72,7 +72,7 @@ public class WaveManager : MonoBehaviour
     public void EndWave()
     {
         //DEbug
-        Debug.Log("Spawning finished!");
+        //Debug.Log("Spawning finished!");
 
         //Invoke Check for enemies to ensure things don't happen when we don't want them to.
         InvokeRepeating("CheckForEnemies", 0, 2);
@@ -88,6 +88,9 @@ public class WaveManager : MonoBehaviour
         if (GameObject.FindWithTag("Enemy") == null)
         {
             waveActive = false;
+
+            // Award end of wave cash bonus
+            GameManager.Instance.ChangeMoney(15 * waveCount);
 
             GameEventManager.Instance.PickEvent();
             startButton.SetActive(true);

@@ -15,7 +15,15 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Controls fastforward
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Time.timeScale = 2.5f;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     void AddRevenue()
