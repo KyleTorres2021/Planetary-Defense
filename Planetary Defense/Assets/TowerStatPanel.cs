@@ -14,6 +14,12 @@ public class TowerStatPanel : MonoBehaviour
     [SerializeField]
     GameObject nameText;
 
+    // Controls whether panel is fully visible to player
+    bool hidden;
+
+    Vector2 originalPos;
+    Vector2 hiddenPos;
+
     // Tower whose stats are to be displayed
     GameObject tower = null;
 
@@ -23,7 +29,6 @@ public class TowerStatPanel : MonoBehaviour
     // Called Before Start
     private void Awake()
     {
-
         // If there is not already an instance of GameManager, set it to this.
         if (Instance == null)
         {
@@ -35,14 +40,16 @@ public class TowerStatPanel : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //Set GameManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-        DontDestroyOnLoad(gameObject);
+        //Set revealed and hidden positions fo use in gameplay
+        originalPos = this.transform.position;
+        hiddenPos = new Vector2(this.transform.position.x, this.transform.position.y - 195);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        //Hide panel at start of game
+        hidden = true;
+        this.gameObject.transform.position = hiddenPos;
     }
 
     // Update is called once per frame
@@ -63,6 +70,23 @@ public class TowerStatPanel : MonoBehaviour
 
         //Display tower health as lifebar
         lifeBar.GetComponent<Image>().fillAmount = healthPercent;
+    }
+
+    /// <summary>
+    /// Toggles visibility of status panel when button is clicked
+    /// </summary>
+    public void HideShowPanel()
+    {
+        if(hidden)
+        {
+            hidden = false;
+            this.gameObject.transform.position = originalPos;
+        }
+        else
+        {
+            hidden = true;
+            this.gameObject.transform.position = hiddenPos;
+        }
     }
 
     public void DisplayNewTower(GameObject newTower)
