@@ -4025,6 +4025,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5832552612949399838, guid: 6ab5d100a62c4f1488e554a04b14828e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832552612949399838, guid: 6ab5d100a62c4f1488e554a04b14828e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832552612949399838, guid: 6ab5d100a62c4f1488e554a04b14828e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832552612949399838, guid: 6ab5d100a62c4f1488e554a04b14828e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6273477794767517248, guid: 6ab5d100a62c4f1488e554a04b14828e, type: 3}
       propertyPath: m_Name
       value: TowerPanel

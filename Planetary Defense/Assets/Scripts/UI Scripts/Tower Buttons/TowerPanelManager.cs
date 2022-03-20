@@ -10,6 +10,8 @@ public class TowerPanelManager : MonoBehaviour
     [SerializeField]
     GameObject normalTowerButton;
     [SerializeField]
+    GameObject decoyTowerButton;
+    [SerializeField]
     GameObject missileTowerButton;
 
     // Serialize fields for build-related objects
@@ -19,6 +21,8 @@ public class TowerPanelManager : MonoBehaviour
     GameObject resourceTower;
     [SerializeField]
     GameObject basicTower;
+    [SerializeField]
+    GameObject decoyTower;
     [SerializeField]
     GameObject missileTower;
 
@@ -112,6 +116,18 @@ public class TowerPanelManager : MonoBehaviour
 
         GameObject myBuild = Instantiate(dragAndBuild);
         myBuild.GetComponent<DragAndBuild>().InitializeBuild(basicTower);
+    }
+
+    /// <summary>
+    /// Handles attempt to build normal tower
+    /// </summary>
+    public void ClickDecoy()
+    {
+        //normal = 1;
+        SoundManager.Instance.Play(ding);
+
+        GameObject myBuild = Instantiate(dragAndBuild);
+        myBuild.GetComponent<DragAndBuild>().InitializeBuild(decoyTower);
     }
 
     /// <summary>
