@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: {fileID: 6313108368580693362, guid: 8e8ce58da42931946a9c91e4f89da3dc, type: 3}
   projectileDamage: 8
-  projectileSpeed: 12
+  projectileSpeed: 28
   shoot: {fileID: 8300000, guid: 38b77ec48bdb7da418b42a883647d0a8, type: 3}
   impact: {fileID: 8300000, guid: e49a7e7125e09e64c95a2585f33c82b8, type: 3}
   range: 20

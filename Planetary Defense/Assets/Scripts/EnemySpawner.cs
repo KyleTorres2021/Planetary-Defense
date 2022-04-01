@@ -68,16 +68,16 @@ public class EnemySpawner : MonoBehaviour
         switch (chooseSpawn)
         {
             case 0: // North Spawn
-                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 15, worldSize.y + 20), enemy);
+                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(worldSize.y + 5, worldSize.y + 10), enemy);
                 break;
             case 1: // East Spawn
-                SpawnEnemy(Random.Range(worldSize.x + 15, worldSize.x + 20), Random.Range(worldSize.y, -worldSize.y), enemy);
+                SpawnEnemy(Random.Range(worldSize.x + 5, worldSize.x + 10), Random.Range(worldSize.y, -worldSize.y), enemy);
                 break;
             case 2: // South Spawn
-                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y - 20, -worldSize.y - 15), enemy);
+                SpawnEnemy(Random.Range(-worldSize.x, worldSize.x), Random.Range(-worldSize.y - 10, -worldSize.y - 5), enemy);
                 break;
             case 3: // West Spawn
-                SpawnEnemy(Random.Range(-worldSize.x - 15, -worldSize.x - 10), Random.Range(worldSize.y, -worldSize.y), enemy);
+                SpawnEnemy(Random.Range(-worldSize.x - 10, -worldSize.x - 5), Random.Range(worldSize.y, -worldSize.y), enemy);
                 break;
         }
 

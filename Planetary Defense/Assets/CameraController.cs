@@ -7,8 +7,15 @@ public class CameraController : MonoBehaviour
 {
     public float panSpeed = 10f;
     Vector2 panLimit;
+    //Vector2 cameraSize; //Necessary to 
 
+    // Camera's position
     Vector3 pos;
+
+    // Camera's x & y dimensions
+    double cameraHalfHeight;
+    double cameraWidth;
+    double cameraHalfWidth;
 
     // Virtual Joystick
     public Joystick joystick;
@@ -19,6 +26,11 @@ public class CameraController : MonoBehaviour
     {
         controlScheme = GameManager.Instance.currentControlScheme;
         panLimit = GameManager.Instance.worldSize;
+
+        //Get size of our camera to aid in PROPERLY bounding camera.
+        cameraHalfHeight = this.GetComponent<Camera>().orthographicSize;
+        cameraWidth = cameraHalfHeight * this.GetComponent<Camera>().aspect;
+        //cameraHalfWidth = cameraWidth * .05;
     }
 
     // Update is called once per frame
@@ -91,10 +103,10 @@ public class CameraController : MonoBehaviour
         }
 
         // Clamp camera within world boundaries
-        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.y = Mathf.Clamp(pos.y, -panLimit.y, panLimit.y);
+        pos.x = Mathf.Clamp(pos.x, -panLimit.x + (float)cameraWidth, panLimit.x - (float)cameraWidth);
+        pos.y = Mathf.Clamp(pos.y, -panLimit.y + this.GetComponent<Camera>().orthographicSize, panLimit.y - this.GetComponent<Camera>().orthographicSize);
 
-        //Debug.Log("Pan Limit " + panLimit + "Pos " + pos);
+        Debug.Log("Pan Limit " + panLimit + "Pos " + pos);
 
         // Set current position to new position
         transform.position = pos;
