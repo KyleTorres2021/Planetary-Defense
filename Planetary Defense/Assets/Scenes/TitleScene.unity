@@ -159,7 +159,7 @@ MonoBehaviour:
   gameOver: {fileID: 8536171428047750443, guid: 571153f2d73914946b3d5955b10dc17f, type: 3}
   victoryCanvas: {fileID: 731993848875826667, guid: 150fbf23e43803a4b9fd0a13921917eb, type: 3}
   currentControlScheme: 1
-  worldSize: {x: 30, y: 30}
+  worldSize: {x: 50, y: 50}
   resources: []
 --- !u!4 &323788186
 Transform:
