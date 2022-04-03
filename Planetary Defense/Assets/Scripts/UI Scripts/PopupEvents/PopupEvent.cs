@@ -14,10 +14,33 @@ public class PopupEvent : MonoBehaviour
         this.noOutcome = noOutcome;
     }
 
-    //Retrieve string for message
+    /// <summary>
+    /// Retrieve string for message
+    /// </summary>
+    /// <returns></returns>
     public string GetMessage()
     {
         return myMessage;
+    }
+
+    /// <summary>
+    /// Retrieve string for "yes" message
+    /// </summary>
+    /// <returns></returns>
+    //Retrieve string for message
+    public string GetYesMessage()
+    {
+        return yesOutcome;
+    }
+
+    /// <summary>
+    /// Retrieve string for "no" message
+    /// </summary>
+    /// <returns></returns>
+    //Retrieve string for message
+    public string GetNoMessage()
+    {
+        return noOutcome;
     }
 
     virtual public void OnYes()

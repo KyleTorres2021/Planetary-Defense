@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2476187357942481365}
   - component: {fileID: 2476187357942481364}
   - component: {fileID: 2476187357942481363}
+  - component: {fileID: 4997237148558298813}
   m_Layer: 5
-  m_Name: PopupOutcomeCanvas
+  m_Name: PopupResolutionCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +101,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4997237148558298813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476187357942481362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c211dfd838692f94c954fc0a9f45c303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textObject: {fileID: 6132018953175375312}
+  which: 0
 --- !u!1 &2684675379996720559
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,9 +546,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Event1, Assembly-CSharp
-        m_MethodName: OnClickYes
+      - m_Target: {fileID: 4997237148558298813}
+        m_TargetAssemblyTypeName: PopupEvent_ResolutionWindow, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

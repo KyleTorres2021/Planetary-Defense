@@ -486,8 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4476db1c422b4db4ea2fb761d3da3404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alertPopup: {fileID: 2476187357942481362, guid: ddf9880da0030da44a6487a4fe5fe577, type: 3}
-  outcomePopup: {fileID: 0}
+  eventWindow: {fileID: 2476187357942481362, guid: ddf9880da0030da44a6487a4fe5fe577, type: 3}
+  currentEvent: {fileID: 0}
 --- !u!1 &317337295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,6 @@ GameObject:
   - component: {fileID: 1025624874}
   - component: {fileID: 1025624873}
   - component: {fileID: 1025624872}
-  - component: {fileID: 1025624875}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -1706,21 +1705,6 @@ MonoBehaviour:
   startButton: {fileID: 1860861486}
   waveCount: 0
   waveActive: 0
---- !u!114 &1025624875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025624870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eeb9aaf606b54f4392f7d3a630192f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event1: {fileID: 7262785535298945069, guid: 5aec16ef2ca1ccb4fa5a3ee620047068, type: 3}
-  event2: {fileID: 2807539330013534096, guid: 32e097cf3d4517f4a93d47f00ad2e74d, type: 3}
-  event3: {fileID: 7643994288166879450, guid: a2c0dce48b9ae7c479632809811f8712, type: 3}
 --- !u!1 &1065010061
 GameObject:
   m_ObjectHideFlags: 0

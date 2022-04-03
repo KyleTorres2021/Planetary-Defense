@@ -31,12 +31,6 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// Increases wave count and begins wave when UI button is clicked.
     /// </summary>
@@ -92,12 +86,14 @@ public class WaveManager : MonoBehaviour
             // Award end of wave cash bonus
             GameManager.Instance.ChangeMoney(15 * waveCount);
 
-            GameEventManager.Instance.PickEvent();
+            // Start the player's end of wave event
+            PopupEvent_Manager.Instance.BeginEvent();
+
+            // Reactivate start button so player can begin next wave
             startButton.SetActive(true);
 
             CancelInvoke("CheckForEnemies");
         }
-
     }
 
 }
