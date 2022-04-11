@@ -5,13 +5,17 @@ using UnityEngine;
 public class PopupEvent : MonoBehaviour
 {
     string myMessage, yesOutcome, noOutcome;
+    int changeInMoney, changeInLife;
 
     //Constructor
-    public PopupEvent(string myMessage, string yesOutcome, string noOutcome)
+    public PopupEvent(string myMessage, string yesOutcome, string noOutcome, int changeInMoney, int changeInLife)
     {
         this.myMessage = myMessage;
         this.yesOutcome = yesOutcome;
         this.noOutcome = noOutcome;
+
+        this.changeInMoney = changeInMoney;
+        this.changeInLife = changeInLife;
     }
 
     /// <summary>
@@ -45,7 +49,9 @@ public class PopupEvent : MonoBehaviour
 
     virtual public void OnYes()
     {
-
+        //
+        GameManager.Instance.ChangeMoney(changeInMoney);
+        GameManager.Instance.ChangeLife(changeInLife);
     }
 
     virtual public void OnNo()

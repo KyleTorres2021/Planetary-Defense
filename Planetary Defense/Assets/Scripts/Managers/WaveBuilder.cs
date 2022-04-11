@@ -9,6 +9,8 @@ public class WaveBuilder : MonoBehaviour
     GameObject normal;
     [SerializeField]
     GameObject assault;
+    [SerializeField]
+    GameObject ram;
 
     public static WaveBuilder Instance = null;
 
@@ -63,21 +65,20 @@ public class WaveBuilder : MonoBehaviour
         //TODO: Random number generator, ways to influence percentage
         //if(WaveManager.Instance.waveCount > 2) //Starting on Wave 3
         //{
-            randomEnemy = Random.Range(1,3);
+            randomEnemy = Random.Range(0,3);
 
-            if(randomEnemy == 1)
-            {
+        switch(randomEnemy)
+        {
+            case 0:
                 enemy = normal;
-            }
-            else
-            {
+                break;
+            case 1:
                 enemy = assault;
-            }
-        //}
-        //else
-        //{
-        //    enemy = normal;
-        //}
+                break;
+            case 2:
+                enemy = ram;
+                break;
+        }
 
         return enemy;
     }

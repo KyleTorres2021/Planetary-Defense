@@ -1690,6 +1690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 7309312979334551205, guid: 11bf6677f3d4aee45835efa40eb96bec, type: 3}
   assault: {fileID: 6845707472292675350, guid: 23747a21caa006f4da32934567b4e230, type: 3}
+  ram: {fileID: 2602647341643553918, guid: f5f30318df7073e4a88c18b0d1b2ff6d, type: 3}
 --- !u!114 &1025624874
 MonoBehaviour:
   m_ObjectHideFlags: 0

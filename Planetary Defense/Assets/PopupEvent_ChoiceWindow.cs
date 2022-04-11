@@ -29,6 +29,7 @@ public class PopupEvent_ChoiceWindow : MonoBehaviour
     //When player clicks yes
     public void OnYes()
     {
+        //if()
         //textObject.GetComponent<Text>().text = myEvent.GetYesMessage();
         myEvent.OnYes();
 
