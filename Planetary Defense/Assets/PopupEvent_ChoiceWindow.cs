@@ -29,14 +29,17 @@ public class PopupEvent_ChoiceWindow : MonoBehaviour
     //When player clicks yes
     public void OnYes()
     {
-        //if()
-        //textObject.GetComponent<Text>().text = myEvent.GetYesMessage();
-        myEvent.OnYes();
+        // Ensures we have enough money to initiate the event
+        if (GameManager.Instance.moneyCount + PopupEvent_Manager.Instance.currentEvent.GetChangeInMoney() >= 0)
+        {
+            //textObject.GetComponent<Text>().text = myEvent.GetYesMessage();
+            myEvent.OnYes();
 
-        GameObject myResolution = Instantiate(resolutionWindow);
-        myResolution.GetComponent<PopupEvent_ResolutionWindow>().which = true;
+            GameObject myResolution = Instantiate(resolutionWindow);
+            myResolution.GetComponent<PopupEvent_ResolutionWindow>().which = true;
 
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 
     //When player clicks no

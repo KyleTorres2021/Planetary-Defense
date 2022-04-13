@@ -47,6 +47,15 @@ public class PopupEvent : MonoBehaviour
         return noOutcome;
     }
 
+    /// <summary>
+    /// Retrieve "cost" of event
+    /// </summary>
+    /// <returns></returns>
+    public int GetChangeInMoney()
+    {
+        return changeInMoney;
+    }
+
     virtual public void OnYes()
     {
         //

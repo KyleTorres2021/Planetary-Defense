@@ -76,7 +76,15 @@ public class WaveBuilder : MonoBehaviour
                 enemy = assault;
                 break;
             case 2:
-                enemy = ram;
+                //Haphazard temp solution
+                if (WaveManager.Instance.waveCount > 3)
+                {
+                    enemy = ram;
+                }
+                else
+                {
+                    enemy = normal;
+                }
                 break;
         }
 
