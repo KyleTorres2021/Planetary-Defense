@@ -36,7 +36,7 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     public void BeginNextWave()
     {
-        if (waveCount < 2)
+        if (waveCount < 7)
         {
             Debug.Log(startButton);
             startButton.SetActive(false);

@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     public void InitializeGame()
     {
         lifeCount = 25;
-        moneyCount = 150;
+        moneyCount = 100;
         killCount = 0;
         //spawnCount = 0;
     }
@@ -121,6 +121,11 @@ public class GameManager : MonoBehaviour
         else // Add change to current money
         {
             moneyCount += change;
+
+            if(moneyCount >= 9999)
+            {
+                moneyCount = 9999;
+            }
         }
     }
 

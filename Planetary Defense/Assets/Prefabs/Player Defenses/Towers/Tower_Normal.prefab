@@ -164,7 +164,7 @@ MonoBehaviour:
   impact: {fileID: 0}
   range: 10
   fireRate: 1
-  fireCountdown: 1
+  fireCountdown: 0
   targetTag: Enemy
 --- !u!114 &3424317399621642109
 MonoBehaviour:

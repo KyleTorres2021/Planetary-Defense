@@ -14,6 +14,7 @@ public class TimescaleManager : MonoBehaviour
 
     private void Start()
     {
+        pauseMenu.GetComponent<PauseMenu>().AssignTimescaleManager(this);
         pauseMenu.SetActive(false);
     }
 
@@ -38,18 +39,27 @@ public class TimescaleManager : MonoBehaviour
         //Controls pause. Needs to be moved to its own script after initial testing
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (paused == false)
-            {
-                paused = true;
-                Time.timeScale = 0;
-                pauseMenu.SetActive(true);
-            }
-            else
-            {
-                paused = false;
-                Time.timeScale = 1;
-                pauseMenu.SetActive(false);
-            }
+            TogglePaused();
+        }
+    }
+
+    public void TogglePaused()
+    {
+        //Debug.Log("Try TOGGLE");
+
+        if (paused == false)
+        {
+            paused = true;
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            //Debug.Log("Full SPEED ahead!");
+
+            paused = false;
+            Time.timeScale = 1;
+            pauseMenu.SetActive(false);
         }
     }
 }

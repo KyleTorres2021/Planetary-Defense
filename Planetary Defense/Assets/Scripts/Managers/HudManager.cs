@@ -39,7 +39,7 @@ public class HudManager : MonoBehaviour
         if(life != GameManager.Instance.lifeCount)
         {
             life = GameManager.Instance.lifeCount;
-            lifeCountText.text = "Life: " + life;
+            lifeCountText.text = "Stability: " + life;
         }
     }
 

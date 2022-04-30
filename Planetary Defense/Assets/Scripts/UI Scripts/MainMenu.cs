@@ -19,11 +19,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     AudioClip click;
 
-    private void Start()
-    {
-        //Ensure Options button reflects currently selected control choice
-        UpdateOptionsText();
-    }
 
     /// <summary>
     /// Loads GameScene 
@@ -64,31 +59,12 @@ public class MainMenu : MonoBehaviour
         Instantiate(credits);
     }
 
-    public void OptionsHandler()
+    /// <summary>
+    /// Close application
+    /// </summary>
+    public void QuitGame()
     {
-        // Play Sound
-        SoundManager.Instance.Play(click);
-
-        //GameManager.Instance.SetCurrentControlScheme();
-
-        UpdateOptionsText();
+        Application.Quit();
     }
 
-    //
-    void UpdateOptionsText()
-    {
-        //Label button text
-        if (GameManager.Instance.currentControlScheme == 2)
-        {
-            optionsText.text = "Mouse Control";
-        }
-        else if (GameManager.Instance.currentControlScheme == 3)
-        {
-            optionsText.text = "Mobile Control";
-        }
-        else if (GameManager.Instance.currentControlScheme == 1)  //Note that WASD is set as default in case weirdness happens
-        {
-            optionsText.text = "WASD Control";
-        }
-    }
 }
