@@ -32,7 +32,7 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         // Set UpdateTarget() to be called every half second
-        InvokeRepeating("UpdateTarget", 0f, .5f);
+        InvokeRepeating("UpdateTarget", 0f, .1f);
     }
 
     /// <summary>

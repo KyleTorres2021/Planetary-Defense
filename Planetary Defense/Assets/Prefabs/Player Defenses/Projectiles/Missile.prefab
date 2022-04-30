@@ -4829,8 +4829,8 @@ GameObject:
   - component: {fileID: -7386230246264624378}
   - component: {fileID: -622768306210018230}
   - component: {fileID: 1141098845867773412}
-  - component: {fileID: -4224852139602339422}
   - component: {fileID: 1563337542703467937}
+  - component: {fileID: -6521486257535182002}
   m_Layer: 10
   m_Name: Missile
   m_TagString: Untagged
@@ -5039,20 +5039,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &-4224852139602339422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313108368580693362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f792c23a12281f84cbf23e36edeba28d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  click: {fileID: 0}
-  panelAnim: {fileID: 0}
 --- !u!114 &1563337542703467937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5063,6 +5049,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04eb207ad6a81214cafe81e10a4e66ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactParticle: {fileID: 2705719170886124686, guid: 622ef4335fe31ea4ca6eb408e46f3836, type: 3}
+--- !u!114 &-6521486257535182002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313108368580693362}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f529a4b612287048a6b1ad13113fdf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   impactParticle: {fileID: 2705719170886124686, guid: 622ef4335fe31ea4ca6eb408e46f3836, type: 3}

@@ -9,6 +9,9 @@ public class TimescaleManager : MonoBehaviour
     [SerializeField]
     GameObject pauseMenu;
 
+    [SerializeField]
+    GameObject fastForward;
+
     private void Start()
     {
         pauseMenu.SetActive(false);
@@ -23,10 +26,12 @@ public class TimescaleManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 Time.timeScale = 2.5f;
+                fastForward.SetActive(true);
             }
             else
             {
                 Time.timeScale = 1;
+                fastForward.SetActive(false);
             }
         }
 

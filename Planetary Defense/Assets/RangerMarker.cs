@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class RangerMarker : MonoBehaviour
 {
+    // Line renderer we will use for drawing range
     public LineRenderer rangeRenderer;
 
+    /// <summary>
+    /// Complicated circle shit I don't understand
+    /// </summary>
+    /// <param name="steps"></param>
+    /// <param name="radius"></param>
     public void DrawCircle(int steps, float radius)
     {
         rangeRenderer.positionCount = steps;
 
-        float scaledRadius = radius * 2;
+        float scaledRadius = radius * 2f;
 
         for(int currentStep = 0; currentStep < steps; currentStep++)
         {
@@ -28,5 +34,10 @@ public class RangerMarker : MonoBehaviour
 
             rangeRenderer.SetPosition(currentStep, currentPosition);
         }
+    }
+
+    public void HideCircle()
+    {
+        rangeRenderer.positionCount = 0;
     }
 }
