@@ -22,6 +22,10 @@ public class DragAndBuild : MonoBehaviour
     [SerializeField]
     AudioClip cancelSFX;
 
+    // Used to display range of tower prior to building it
+    [SerializeField]
+    GameObject rangeMarker;
+
     // Which camera world to point will use
     private Camera cam;
 
@@ -48,6 +52,9 @@ public class DragAndBuild : MonoBehaviour
         // Set Sprite and adjust alpha
         this.gameObject.GetComponent<SpriteRenderer>().sprite = towerToBuild.GetComponent<SpriteRenderer>().sprite;
         this.gameObject.GetComponent<SpriteRenderer>().color = normalColor;
+
+        // Display range preview
+        rangeMarker.GetComponent<RangerMarker>().DrawCircle(1000, tower.GetComponent<Tower>().range);
 
     }
 
@@ -109,7 +116,7 @@ public class DragAndBuild : MonoBehaviour
         Destroy(this.gameObject);
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         canBuild = false;
 
