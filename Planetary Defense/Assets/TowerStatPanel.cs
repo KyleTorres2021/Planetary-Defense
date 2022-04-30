@@ -93,6 +93,9 @@ public class TowerStatPanel : MonoBehaviour
     {
         tower = newTower;
 
+        hidden = false;
+        this.gameObject.transform.position = originalPos;
+
         towerSprite.GetComponent<Image>().sprite = tower.GetComponent<SpriteRenderer>().sprite;
 
         nameText.GetComponent<Text>().text = tower.GetComponent<Tower>().name;

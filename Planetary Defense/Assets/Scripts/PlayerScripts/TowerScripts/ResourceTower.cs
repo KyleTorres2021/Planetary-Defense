@@ -8,12 +8,12 @@ public class ResourceTower : MonoBehaviour
     void Start()
     {
         // Adds this ResourceTower to list at spawn
-        GameManager.Instance.resources.Add(this);
+        PlayerManager.Instance.resources.Add(this);
     }
 
     // 
     private void OnDestroy()
     {
-        GameManager.Instance.resources.Remove(this);
+        PlayerManager.Instance.resources.Remove(this);
     }
 }

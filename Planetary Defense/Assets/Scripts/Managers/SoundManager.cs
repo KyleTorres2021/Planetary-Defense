@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
     // Audio players components.
     public AudioSource EffectsSource;
+    public AudioSource MusicSource;
 
     public static SoundManager Instance = null;
+
+    // Music track to play during gameply
+    [SerializeField]
+    AudioClip BGM;
 
     private void Awake()
     {

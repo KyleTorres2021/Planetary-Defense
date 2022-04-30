@@ -160,7 +160,6 @@ MonoBehaviour:
   victoryCanvas: {fileID: 731993848875826667, guid: 150fbf23e43803a4b9fd0a13921917eb, type: 3}
   currentControlScheme: 1
   worldSize: {x: 50, y: 50}
-  resources: []
 --- !u!4 &323788186
 Transform:
   m_ObjectHideFlags: 0
@@ -229,6 +228,10 @@ PrefabInstance:
     - target: {fileID: 7667902235268191508, guid: 170ca3de4e973c144a99ea2ccae30063, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611607717956007104, guid: 170ca3de4e973c144a99ea2ccae30063, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170ca3de4e973c144a99ea2ccae30063, type: 3}

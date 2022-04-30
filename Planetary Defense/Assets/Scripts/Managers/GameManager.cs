@@ -34,9 +34,6 @@ public class GameManager : MonoBehaviour
     // Helps declare size of gameworld
     public Vector2 worldSize = new Vector2(200, 200);
 
-    // List of ResourceTowers is used to determine player income
-    public List<ResourceTower> resources = new List<ResourceTower>();
-
     // Helps enforce singleton
     public static GameManager Instance = null;
 
@@ -144,57 +141,5 @@ public class GameManager : MonoBehaviour
         killCount++;
     }
 
-    /// <summary>
-    /// Takes an int for control scheme
-    /// </summary>
-    /// <param name="controlScheme"></param>
-    //public void SetCurrentControlScheme()
-    //{
-    //    if(currentControlScheme >= 3)
-    //    {
-    //        currentControlScheme = 1;
-    //    }
-    //    else
-    //    {
-    //        currentControlScheme++;
-    //    }
-    //}
-
-    ///// <summary>
-    ///// Ewwww! Cut quest feature ASAP!
-    ///// </summary>
-    //void CheckQuests()
-    //{
-
-    //    if (GameObject.Find("TowerPanel").GetComponent<TowerPanelManager>().researchLevel > 0 && QuestComplete1 == false)
-    //    {
-    //        QuestComplete1 = true;
-    //        HUD.GetComponent<QuestsHandler>().CompleteQuest1();
-    //    }
-
-    //    if (GameObject.FindGameObjectWithTag("Tower") != null && QuestComplete2 == false)
-    //    {
-    //        QuestComplete2 = true;
-    //        HUD.GetComponent<QuestsHandler>().CompleteQuest2();
-    //    }
-
-    //    if (GameObject.Find("Missile_Tower") != null && QuestComplete3 == false)
-    //    {
-    //        QuestComplete3 = true;
-    //        HUD.GetComponent<QuestsHandler>().CompleteQuest3();
-    //    }
-
-    //    if (moneyCount >= 300 && QuestComplete4 == false)
-    //    {
-    //        QuestComplete4 = true;
-    //        HUD.GetComponent<QuestsHandler>().CompleteQuest4();
-    //    }
-
-    //    if (spawnCount == 75 && QuestComplete5 == false)
-    //    {
-    //        QuestComplete5 = true;
-    //        HUD.GetComponent<QuestsHandler>().CompleteQuest5();
-    //    }
-    //}
 
 }

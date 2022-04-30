@@ -18,6 +18,10 @@ public class DragAndBuild : MonoBehaviour
     [SerializeField]
     AudioClip buildSFX;
 
+    // Sfx for cancelling build
+    [SerializeField]
+    AudioClip cancelSFX;
+
     // Which camera world to point will use
     private Camera cam;
 
@@ -59,6 +63,13 @@ public class DragAndBuild : MonoBehaviour
         {
             TryBuild();
         }
+
+        // Destroy build if player right clicks
+        if (Input.GetMouseButtonDown(1))
+        {
+            CancelBuild();
+        }
+
     }
 
     // Build tower if able
@@ -79,13 +90,24 @@ public class DragAndBuild : MonoBehaviour
         else
         {
             // Destroy draggable if build fails
-            Destroy(this.gameObject);
+            CancelBuild();
         }
 
 
         tower = null;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    private void CancelBuild()
+    {
+        //Play cancel sound
+        SoundManager.Instance.Play(cancelSFX);
+
+        // Destroy draggable if build fails
+        Destroy(this.gameObject);
+    }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {

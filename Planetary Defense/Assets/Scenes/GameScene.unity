@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.18431373, g: 0.85490197, b: 0.18431373, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -558,7 +558,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Show/Hide
 --- !u!222 &317337298
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2138,7 +2138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.019607844, g: 0.09803922, b: 0.27450982, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3695,7 +3695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557692829892684387, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557692829892684388, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_Camera
@@ -3817,7 +3817,15 @@ PrefabInstance:
         with Left Click
 
 
-        Fast-Forward with Space'
+        Cancel Builds with Right Click
+
+
+        Fast-Forward
+        with Space'
+      objectReference: {fileID: 0}
+    - target: {fileID: 557692831560360993, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 165
       objectReference: {fileID: 0}
     - target: {fileID: 557692831560361006, guid: 3cd99976e8b57fd40ace24f58633d3f2, type: 3}
       propertyPath: m_Layer

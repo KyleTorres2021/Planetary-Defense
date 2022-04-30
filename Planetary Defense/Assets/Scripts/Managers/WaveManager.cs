@@ -36,7 +36,7 @@ public class WaveManager : MonoBehaviour
     /// </summary>
     public void BeginNextWave()
     {
-        if (waveCount < 3)
+        if (waveCount < 2)
         {
             Debug.Log(startButton);
             startButton.SetActive(false);
@@ -45,10 +45,10 @@ public class WaveManager : MonoBehaviour
             waveActive = true;
             BuildWave();
         }
-        else
-        {
-            GameManager.Instance.EndGame();
-        }
+        //else
+        //{
+        //    GameManager.Instance.EndGame();
+        //}
     }
 
     // Generates and begins spawning enemy wave
@@ -93,6 +93,11 @@ public class WaveManager : MonoBehaviour
             startButton.SetActive(true);
 
             CancelInvoke("CheckForEnemies");
+
+            if(waveCount > 9)
+            {
+                GameManager.Instance.EndGame();
+            }
         }
     }
 
