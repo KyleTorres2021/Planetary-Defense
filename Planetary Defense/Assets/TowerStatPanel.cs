@@ -13,6 +13,8 @@ public class TowerStatPanel : MonoBehaviour
     GameObject lifeBar;
     [SerializeField]
     GameObject nameText;
+    [SerializeField]
+    Text lifeText;
 
     // Controls whether panel is fully visible to player
     bool hidden;
@@ -65,10 +67,12 @@ public class TowerStatPanel : MonoBehaviour
         {
             //Calculate tower's current health percentage
             healthPercent = tower.GetComponent<HealthBar>().hp / tower.GetComponent<HealthBar>().maxHP;
+            lifeText.text = tower.GetComponent<HealthBar>().hp + "/" + tower.GetComponent<HealthBar>().maxHP;
         }
         else
         {
             healthPercent = 0;
+            lifeText.text = "";
         }
 
         //Display tower health as lifebar

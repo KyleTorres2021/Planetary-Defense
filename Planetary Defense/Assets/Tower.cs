@@ -30,18 +30,20 @@ public class Tower : MonoBehaviour
         // Send this tower to stat panel for display
         TowerStatPanel.Instance.DisplayNewTower(this.gameObject);
 
-        //Display Range
-        if(showRange == false)
+        //Display Range if possible
+        if (rangeMarker != null)
         {
-            showRange = true;
-            rangeMarker.GetComponent<RangerMarker>().DrawCircle(1000, range);
+            if (showRange == false)
+            {
+                showRange = true;
+                rangeMarker.GetComponent<RangerMarker>().DrawCircle(1000, range);
+            }
+            else //Hide range if already shown
+            {
+                showRange = false;
+                rangeMarker.GetComponent<RangerMarker>().HideCircle();
+            }
         }
-        else //Hide range if already shown
-        {
-            showRange = false;
-            rangeMarker.GetComponent<RangerMarker>().HideCircle();
-        }
-
     }
 
 

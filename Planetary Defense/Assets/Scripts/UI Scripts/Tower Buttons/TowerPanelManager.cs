@@ -100,10 +100,17 @@ public class TowerPanelManager : MonoBehaviour
     public void ClickResource()
     {
         //normal = 1;
-        SoundManager.Instance.Play(ding);
+        if(GameManager.Instance.moneyCount < resourceTower.GetComponent<Tower>().towerCost)
+        {
+            SoundManager.Instance.Play(error);
+        }
+        else
+        {
+            SoundManager.Instance.Play(ding);
 
-        GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().InitializeBuild(resourceTower);
+            GameObject myBuild = Instantiate(dragAndBuild);
+            myBuild.GetComponent<DragAndBuild>().InitializeBuild(resourceTower);
+        }
     }
 
     /// <summary>
@@ -112,10 +119,17 @@ public class TowerPanelManager : MonoBehaviour
     public void ClickNormal()
     {
         //normal = 1;
-        SoundManager.Instance.Play(ding);
+        if (GameManager.Instance.moneyCount < basicTower.GetComponent<Tower>().towerCost)
+        {
+            SoundManager.Instance.Play(error);
+        }
+        else
+        {
+            SoundManager.Instance.Play(ding);
 
-        GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().InitializeBuild(basicTower);
+            GameObject myBuild = Instantiate(dragAndBuild);
+            myBuild.GetComponent<DragAndBuild>().InitializeBuild(basicTower);
+        }
     }
 
     /// <summary>
@@ -124,10 +138,18 @@ public class TowerPanelManager : MonoBehaviour
     public void ClickDecoy()
     {
         //normal = 1;
-        SoundManager.Instance.Play(ding);
+        if (GameManager.Instance.moneyCount < decoyTower.GetComponent<Tower>().towerCost)
+        {
+            SoundManager.Instance.Play(error);
+        }
+        else
+        {
+            //normal = 1;
+            SoundManager.Instance.Play(ding);
 
-        GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().InitializeBuild(decoyTower);
+            GameObject myBuild = Instantiate(dragAndBuild);
+            myBuild.GetComponent<DragAndBuild>().InitializeBuild(decoyTower);
+        }
     }
 
     /// <summary>
@@ -135,10 +157,18 @@ public class TowerPanelManager : MonoBehaviour
     /// </summary>
     public void ClickMissile()
     {
-        //normal = 2;
-        SoundManager.Instance.Play(ding);
+        //normal = 1;
+        if (GameManager.Instance.moneyCount < missileTower.GetComponent<Tower>().towerCost)
+        {
+            SoundManager.Instance.Play(error);
+        }
+        else
+        {
+            //normal = 2;
+            SoundManager.Instance.Play(ding);
 
-        GameObject myBuild = Instantiate(dragAndBuild);
-        myBuild.GetComponent<DragAndBuild>().InitializeBuild(missileTower);
+            GameObject myBuild = Instantiate(dragAndBuild);
+            myBuild.GetComponent<DragAndBuild>().InitializeBuild(missileTower);
+        }
     }
 }
