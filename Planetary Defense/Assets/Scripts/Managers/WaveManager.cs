@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
             Debug.Log(startButton);
             startButton.SetActive(false);
             waveCount++;
-            enemyCount += 10;
+            enemyCount += 14;
             waveActive = true;
             BuildWave();
         }
@@ -82,12 +82,12 @@ public class WaveManager : MonoBehaviour
         {
             CancelInvoke("CheckForEnemies");
 
-            if (waveCount < 3)
+            if (waveCount < 7)
             {
                 waveActive = false;
 
                 // Award end of wave cash bonus
-                GameManager.Instance.ChangeMoney(15 * waveCount);
+                GameManager.Instance.ChangeMoney(25);
 
                 // Start the player's end of wave event
                 PopupEvent_Manager.Instance.BeginEvent();

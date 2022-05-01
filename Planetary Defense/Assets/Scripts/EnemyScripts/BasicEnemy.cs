@@ -31,8 +31,8 @@ public class BasicEnemy : MonoBehaviour
     GameObject smokeParticles;
 
     // Colors for damage
-    Color normalColor = new Color(1, 1, 1);
-    Color damageColor = new Color(255, 0, 0);
+    public Color normalColor; //new Color(1, 1, 1);
+    public Color damageColor;
 
     public CameraController cameraShake;
 

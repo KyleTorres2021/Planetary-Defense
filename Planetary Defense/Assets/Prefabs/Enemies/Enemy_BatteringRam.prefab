@@ -99,13 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c8d77ead50b954b9d3787d6152a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  hp: 20
+  speed: 0.75
+  hp: 10
   explode: {fileID: 8300000, guid: 4a211e06b6ce98a4abdd983586925b6e, type: 3}
   loseLife: {fileID: 8300000, guid: d757761f586602d40835b1b1b0587d21, type: 3}
   deathParticles: {fileID: 2705719170886124686, guid: 29d8eeeee987f8a44aa54fb08fcd02dc, type: 3}
   debrisParticles: {fileID: 2705719170886124686, guid: 2d46320e8c217bf4091b0557f324665d, type: 3}
   smokeParticles: {fileID: 2705719170886124686, guid: 78ec22c88fe93d244ae4b8273ea0b687, type: 3}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
   cameraShake: {fileID: 0}
 --- !u!50 &2602647341643553905
 Rigidbody2D:
@@ -119,14 +121,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &2602647341643553904
 CircleCollider2D:
@@ -141,9 +143,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11982727, y: 0}
+  m_Offset: {x: -0.11982727, y: -0.013207436}
   serializedVersion: 2
-  m_Radius: 1.9933205
+  m_Radius: 2.0989804
 --- !u!114 &2602647341643553919
 MonoBehaviour:
   m_ObjectHideFlags: 0

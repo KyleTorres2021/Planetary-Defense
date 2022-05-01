@@ -181,13 +181,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c8d77ead50b954b9d3787d6152a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  hp: 5
+  speed: 2
+  hp: 2
   explode: {fileID: 8300000, guid: 4a211e06b6ce98a4abdd983586925b6e, type: 3}
   loseLife: {fileID: 8300000, guid: d757761f586602d40835b1b1b0587d21, type: 3}
   deathParticles: {fileID: 2705719170886124686, guid: 29d8eeeee987f8a44aa54fb08fcd02dc, type: 3}
   debrisParticles: {fileID: 2705719170886124686, guid: 2d46320e8c217bf4091b0557f324665d, type: 3}
   smokeParticles: {fileID: 2705719170886124686, guid: 78ec22c88fe93d244ae4b8273ea0b687, type: 3}
+  normalColor: {r: 1, g: 0, b: 0, a: 1}
+  damageColor: {r: 1, g: 1, b: 1, a: 1}
   cameraShake: {fileID: 0}
 --- !u!114 &6845707472292675347
 MonoBehaviour:
@@ -206,7 +208,7 @@ MonoBehaviour:
   projectileSpeed: 10
   shoot: {fileID: 8300000, guid: a2d387f673d17784a80523601ff60aa3, type: 3}
   impact: {fileID: 0}
-  range: 7
+  range: 8
   fireRate: 0.5
   fireCountdown: 1
   targetTag: Tower
@@ -229,7 +231,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &6845707472292675349
 CircleCollider2D:
@@ -244,6 +246,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12857437, y: 0}
+  m_Offset: {x: -0.12857437, y: -0.016845703}
   serializedVersion: 2
-  m_Radius: 2.130764
+  m_Radius: 2.2486744

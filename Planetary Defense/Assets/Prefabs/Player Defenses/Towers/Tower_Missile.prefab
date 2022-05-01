@@ -219,7 +219,6 @@ MonoBehaviour:
   buildParticles: {fileID: 2705719170886124686, guid: 1e40ae60c18703048af16fbdabb69424, type: 3}
   name: Missile Tower
   range: 20
-  buildTime: 1
   towerCost: 100
   rangeMarker: {fileID: 6167497562041460184}
 --- !u!58 &7218325464075498117
@@ -273,11 +272,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: {fileID: 6313108368580693362, guid: 8e8ce58da42931946a9c91e4f89da3dc, type: 3}
   projectileDamage: 8
-  projectileSpeed: 35
+  projectileSpeed: 45
   shoot: {fileID: 8300000, guid: 38b77ec48bdb7da418b42a883647d0a8, type: 3}
   impact: {fileID: 8300000, guid: e49a7e7125e09e64c95a2585f33c82b8, type: 3}
   range: 20
-  fireRate: 0.7
+  fireRate: 0.6
   fireCountdown: 0
   targetTag: Enemy
 --- !u!114 &-2281962069682179239
