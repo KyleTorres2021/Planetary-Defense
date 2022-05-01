@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db6af945fe62f748a7cbe598aa45b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildParticles: {fileID: 2705719170886124686, guid: 1e40ae60c18703048af16fbdabb69424, type: 3}
   name: Missile Tower
   range: 20
   buildTime: 1

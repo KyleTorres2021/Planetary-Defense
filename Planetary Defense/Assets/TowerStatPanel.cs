@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TowerStatPanel : MonoBehaviour
 {
+    [SerializeField]
+    GameObject selectedIndicator;
 
     //Serialize Fields for Panel elements
     [SerializeField]
@@ -12,7 +14,7 @@ public class TowerStatPanel : MonoBehaviour
     [SerializeField]
     GameObject lifeBar;
     [SerializeField]
-    GameObject nameText;
+    Text nameText;
     [SerializeField]
     Text lifeText;
 
@@ -110,6 +112,15 @@ public class TowerStatPanel : MonoBehaviour
 
         towerSprite.GetComponent<Image>().sprite = tower.GetComponent<SpriteRenderer>().sprite;
 
-        nameText.GetComponent<Text>().text = tower.GetComponent<Tower>().name;
+        nameText.text = tower.GetComponent<Tower>().name;
+
+        //Display indicator of current tower
+        if(GameObject.FindGameObjectWithTag("SelectedIndicator") != null)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("SelectedIndicator"));
+        }
+
+        Instantiate(selectedIndicator, tower.transform);
+
     }
 }

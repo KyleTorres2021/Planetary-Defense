@@ -1903,9 +1903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6001fdc022634d49a4c2fbbaab274ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedIndicator: {fileID: 5071543056154779225, guid: 82c69a381e1d2d64e8d4af0e842ffcce, type: 3}
   towerSprite: {fileID: 205732746}
   lifeBar: {fileID: 2097383221}
-  nameText: {fileID: 1229566194}
+  nameText: {fileID: 1229566196}
   lifeText: {fileID: 1597982546}
 --- !u!1 &1180632558
 GameObject:
