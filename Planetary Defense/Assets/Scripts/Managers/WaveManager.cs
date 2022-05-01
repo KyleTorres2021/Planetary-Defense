@@ -81,20 +81,22 @@ public class WaveManager : MonoBehaviour
         Debug.Log("Checking for enemies...");
         if (GameObject.FindWithTag("Enemy") == null)
         {
-            waveActive = false;
-
-            // Award end of wave cash bonus
-            GameManager.Instance.ChangeMoney(15 * waveCount);
-
-            // Start the player's end of wave event
-            PopupEvent_Manager.Instance.BeginEvent();
-
-            // Reactivate start button so player can begin next wave
-            startButton.SetActive(true);
-
             CancelInvoke("CheckForEnemies");
 
-            if(waveCount > 9)
+            if (waveCount < 3)
+            {
+                waveActive = false;
+
+                // Award end of wave cash bonus
+                GameManager.Instance.ChangeMoney(15 * waveCount);
+
+                // Start the player's end of wave event
+                PopupEvent_Manager.Instance.BeginEvent();
+
+                // Reactivate start button so player can begin next wave
+                startButton.SetActive(true);
+            }
+            else
             {
                 GameManager.Instance.EndGame();
             }

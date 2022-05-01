@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
     public void InitializeGame()
     {
         lifeCount = 25;
@@ -102,7 +101,7 @@ public class GameManager : MonoBehaviour
             if (!end)
             {
                 end = true;
-                Instantiate(victoryCanvas);
+                StartCoroutine(FinalDelay());
             }
         }
     }
@@ -146,5 +145,10 @@ public class GameManager : MonoBehaviour
         killCount++;
     }
 
-
+    //
+    IEnumerator FinalDelay()
+    {
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene("VictoryScene");
+    }
 }

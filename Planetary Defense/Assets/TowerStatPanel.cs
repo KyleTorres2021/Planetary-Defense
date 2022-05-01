@@ -29,7 +29,7 @@ public class TowerStatPanel : MonoBehaviour
     // Called Before Start
     private void Awake()
     {
-        // If there is not already an instance of GameManager, set it to this.
+        // If there is not already an instance of TowerStatPanel, set it to this.
         if (Instance == null)
         {
             Instance = this;
@@ -43,6 +43,9 @@ public class TowerStatPanel : MonoBehaviour
         //Set revealed and hidden positions fo use in gameplay
         originalPos = this.transform.position;
         hiddenPos = new Vector2(this.transform.position.x, this.transform.position.y - 195);
+
+        // Deactivate placehold sprite so its not ugly
+        towerSprite.SetActive(false);
     }
 
     private void Start()
@@ -91,6 +94,11 @@ public class TowerStatPanel : MonoBehaviour
 
     public void DisplayNewTower(GameObject newTower)
     {
+        if (!towerSprite.activeSelf)
+        {
+            towerSprite.SetActive(true);
+        }
+
         tower = newTower;
 
         hidden = false;
