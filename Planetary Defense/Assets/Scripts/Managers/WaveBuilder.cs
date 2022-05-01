@@ -60,26 +60,42 @@ public class WaveBuilder : MonoBehaviour
 
         //Random number Generator
         int randomEnemy;
+        int extraRandom;
 
 
         //TODO: Random number generator, ways to influence percentage
         //if(WaveManager.Instance.waveCount > 2) //Starting on Wave 3
         //{
             randomEnemy = Random.Range(0,3);
+            extraRandom =   Random.Range(0, 4);
 
-        switch(randomEnemy)
+        switch (randomEnemy)
         {
             case 0:
                 enemy = normal;
                 break;
             case 1:
-                enemy = assault;
+                if (WaveManager.Instance.waveCount >= 2)
+                {
+                    enemy = assault;
+                }
+                else
+                {
+                    enemy = normal;
+                }
                 break;
             case 2:
                 //Haphazard temp solution
-                if (WaveManager.Instance.waveCount > 3)
+                if (WaveManager.Instance.waveCount >= 6)
                 {
-                    enemy = ram;
+                    if (extraRandom == 3)
+                    {
+                        enemy = ram;
+                    }
+                    else
+                    {
+                        enemy = assault;
+                    }
                 }
                 else
                 {

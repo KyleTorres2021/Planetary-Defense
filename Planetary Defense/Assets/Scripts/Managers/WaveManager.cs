@@ -61,7 +61,6 @@ public class WaveManager : MonoBehaviour
         // Send enemy list to spawner
         StartCoroutine(EnemySpawner.Instance.SpawnWave(waveList));
     }
-
     
     public void EndWave()
     {

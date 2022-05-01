@@ -6,9 +6,10 @@ public class PopupEvent : MonoBehaviour
 {
     string myMessage, yesOutcome, noOutcome;
     int changeInMoney, changeInLife;
+    bool overspend;
 
     //Constructor
-    public PopupEvent(string myMessage, string yesOutcome, string noOutcome, int changeInMoney, int changeInLife)
+    public PopupEvent(string myMessage, string yesOutcome, string noOutcome, int changeInMoney, int changeInLife, bool overspend)
     {
         this.myMessage = myMessage;
         this.yesOutcome = yesOutcome;
@@ -16,6 +17,8 @@ public class PopupEvent : MonoBehaviour
 
         this.changeInMoney = changeInMoney;
         this.changeInLife = changeInLife;
+
+        this.overspend = overspend;
     }
 
     /// <summary>
@@ -54,6 +57,11 @@ public class PopupEvent : MonoBehaviour
     public int GetChangeInMoney()
     {
         return changeInMoney;
+    }
+
+    public bool GetOverspend()
+    {
+        return overspend;
     }
 
     virtual public void OnYes()

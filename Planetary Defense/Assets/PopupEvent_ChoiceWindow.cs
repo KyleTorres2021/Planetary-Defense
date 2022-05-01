@@ -30,7 +30,7 @@ public class PopupEvent_ChoiceWindow : MonoBehaviour
     public void OnYes()
     {
         // Ensures we have enough money to initiate the event
-        if (GameManager.Instance.moneyCount + PopupEvent_Manager.Instance.currentEvent.GetChangeInMoney() >= 0)
+        if (GameManager.Instance.moneyCount + PopupEvent_Manager.Instance.currentEvent.GetChangeInMoney() >= 0 || PopupEvent_Manager.Instance.currentEvent.GetOverspend() == true)
         {
             //textObject.GetComponent<Text>().text = myEvent.GetYesMessage();
             myEvent.OnYes();
