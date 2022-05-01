@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,8 +25,6 @@ public class GameManager : MonoBehaviour
     bool end = false;
 
     // Canvases to be spawned
-    [SerializeField]
-    GameObject gameOver;
     [SerializeField]
     GameObject victoryCanvas;
 
@@ -63,6 +62,7 @@ public class GameManager : MonoBehaviour
         lifeCount = 25;
         moneyCount = 100;
         killCount = 0;
+        end = false;
         //spawnCount = 0;
     }
 
@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         if (!end)
         {
             end = true;
-            Instantiate(gameOver);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
 
