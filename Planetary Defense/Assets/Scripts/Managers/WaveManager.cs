@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
             Debug.Log(startButton);
             startButton.SetActive(false);
             waveCount++;
-            enemyCount += 14;
+            enemyCount += 12;
             waveActive = true;
             BuildWave();
         }

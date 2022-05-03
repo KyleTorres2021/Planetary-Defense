@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: {fileID: 5820308691066167815, guid: dfa0657e80382bb4fa66087bc23bb986, type: 3}
-  projectileDamage: 3
+  projectileDamage: 2
   projectileSpeed: 28
   shoot: {fileID: 8300000, guid: a2d387f673d17784a80523601ff60aa3, type: 3}
   impact: {fileID: 0}

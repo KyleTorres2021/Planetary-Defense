@@ -26,7 +26,7 @@ public class TimescaleManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Time.timeScale = 2.5f;
+                Time.timeScale = 3f;
                 fastForward.SetActive(true);
             }
             else

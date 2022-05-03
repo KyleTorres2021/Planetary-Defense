@@ -105,7 +105,6 @@ MonoBehaviour:
   buildParticles: {fileID: 2705719170886124686, guid: 1e40ae60c18703048af16fbdabb69424, type: 3}
   name: Resource Tower
   range: 0
-  buildTime: 1
   towerCost: 50
   rangeMarker: {fileID: 0}
 --- !u!114 &316243517483905684
@@ -132,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399bbe1f44fa6794eb718767a998fd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
+  maxHP: 8
   hp: 0
   deathSound: {fileID: 8300000, guid: 93268c5b3f4ce28449cc2be909d5e31f, type: 3}
   damagedEffects: {fileID: 4022019170790592315}

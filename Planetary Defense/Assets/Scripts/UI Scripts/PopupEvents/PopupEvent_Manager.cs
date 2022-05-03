@@ -45,10 +45,10 @@ public class PopupEvent_Manager : MonoBehaviour
         #region standard events
         // Meteor Salvage
         events.Add(new PopupEvent("Your work is interrupted by a scientist bursting into your office! ''Great news!'' he says ''My team just discovered a meteorite made of precious metals! If we retrieve it," +
-            " we could sell it and invest the funds in our planet! Shall I put together a team to collect it?'' \n \n" + "Salvage the meteorite and gain $75?",
+            " we could sell it and invest the funds in our planet! Shall I put together a team to collect it?'' \n \n" + "Salvage the meteorite? \n +$50",
             "The scientist's grin stretches from ear to ear. ''Fantastic! I'll get on it right away!''",
             "A look of disbelief comes over the scientist's face. ''What!? WHY!? There's literally no reason to...!'' His protest stops abruptly. ''Very well...'' He sighs.",
-            75, 0, false));
+            50, 0, false));
 
         // Expensive Mercs
         events.Add(new PopupEvent("Your radio suddenly crackles to life as it receives an incoming transmission. ''Hello! I've got an offer for whoever's in charge around here. Seems you're having trouble with " +
@@ -58,12 +58,12 @@ public class PopupEvent_Manager : MonoBehaviour
             -100, 4, false));
 
         // Taking a bribe
-        events.Add(new PopupEvent("''Pst! Hey you! Over here!'' A voice calls out to you from your office window. Peering outside, you spot a shifty looking man with raider tattoos. ''How'd you like to " +
-            "make a boatload of cash? My mates found an easy score and all you have to do is look the other way.''\n \n" + "Let the raiders perform their heist?\n -20 Stability, +$500",
+        events.Add(new PopupEvent("''Pst! Hey you! Over here!'' A voice calls out to you from your office window. Peering outside, you spot a shifty-looking man with raider tattoos. ''How'd you like to " +
+            "make a boatload of cash? My mates found an easy score and all you have to do is look the other way.''\n \n" + "Let the raiders perform their heist?\n -20 Stability, +$400",
         "''Heheheh... Good choice. You'll hear from me soon.'' With that, the raider disappears into the trees. Later, you recieve an urgent call for backup from a shipping vessel docked at the space port-- " +
             "a request your promptly ignore. That evening, an unmarked envelope arrives for you containing a fat bundle cash.",
         "After you angrily refuse the man's bribe, he beats a hasty retreat! Though your security force is unable to apprehend the raider, you seem to have intimidated his crew into inaction.",
-        500, -20, false));
+        400, -20, false));
 
         // New Gear for Security
         events.Add(new PopupEvent("The time has come for an appointment the Chief of Security scheduled with you. ''Thank you for seeing me. I'll keep this brief.'' Her expression and tone are cold " +
@@ -74,7 +74,7 @@ public class PopupEvent_Manager : MonoBehaviour
         -50, 2, false));
 
         // Emergency Science Meeting
-        events.Add(new PopupEvent("Word reaches your ear that Science Team has called an emergency meeting. They are requesting the presence of all available government official. Will you attend?",
+        events.Add(new PopupEvent("Word reaches your ear that Science Team has called an emergency meeting. They are requesting the presence of all available government officials.\n \n Will you attend?",
             "Figuring this must be incredibly important, you head to the meeting room. There, you find disarray as people discuss how to avert an asteroid on a collision course with the planet! You are able " +
                 "to facilitate a plan to slightly alter the asteroid's course through careful use of the Planetary Defense system. It seems your peers' respect for you has grown. \n \n +1 Stability",
             "Figuring you have better things to do than listen to Science Team debate how many planets are in this solar system again, you ignore the meeting. You only find out later that there was an asteroid " +
@@ -82,18 +82,18 @@ public class PopupEvent_Manager : MonoBehaviour
             0, 1, false));
 
         // Science Meeting
-        events.Add(new PopupEvent("Word reaches your ear that Science Team has called a meeting. They are requesting the presence of all available government official. Will you attend?",
+        events.Add(new PopupEvent("Word reaches your ear that Science Team has called a meeting. They are requesting the presence of all available government officials.\n \n Will you attend?",
             "Figuring this must be incredibly important, you head to the meeting room. There, you scientists arguing whether a small planetoid orbiting around this " +
                 "system's star should be classified as a planet or not. To save face, you see the meeting through to its end and lament the loss of 8 hours.",
             "Figuring you have better things to do than listen to Science Team debate how many planets are in this solar system again, you ignore the meeting.",
             0, 0, false));
 
         events.Add(new PopupEvent("A letter from a neighboring space colony crosses your desk inquiring about your Planetary Defense system. In this letter, the neighboring governor expresses interest in " +
-            "building their own defense system and offers a modest fund in exchange for tower blueprints and skilled technicians to instruct new operators. Will you accept the offer? \n \n +$200",
+            "building their own defense system and offers a modest fund in exchange for tower blueprints and skilled technicians to instruct new operators.\n \n Will you accept the offer? \n +$100",
         "Eager to assist a fellow colony against the raiders (and looking forward to some extra funds,) you contact your neighbor right away. Once you send the requested things, you soon find the promised " +
             "funds wired to your treasury.",
         "Something about this letter strikes you as odd. Feeling like it might be part of a raider scheme to compromise your world's defenses, you decide it should be ignored.",
-        200, 0, false));
+        100, 0, false));
 
         // Sakura
         events.Add(new PopupEvent("Your radio crackles to life with the sound of a serious man's voice. ''This is the merchant vessel Sakura, requesting permission to land. We're carrying goods from the " +
